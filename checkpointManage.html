@@ -1,0 +1,2010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Title -->
+  <title>井盖平台</title>
+
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Admin Dashboard Template" />
+  <meta name="keywords" content="admin,dashboard" />
+  <meta name="author" content="Icon" />
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <!-- Styles -->
+  <link href="assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+  <link href="assets/plugins/uniform/css/default.css" rel="stylesheet" />
+  <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+
+  <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+  <!-- Theme Styles -->
+  <link href="assets/css/layers.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/layers/dark-layer.css" class="theme-color" rel="stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/layui.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/pager.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css" />
+  <link rel="stylesheet" href="assets/css/jquery.mloading.css">
+  <!-- <script src="assets/js/velocity.ui.js" type="text/javascript" charset="utf-8"></script> -->
+
+  <link rel="stylesheet" href="assets/css/clndr.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/weather.css" />
+
+  <link href="assets/css/layer.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/suniconfont.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/default.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/table.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/form.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="assets/js/layui.all.js"></script>
+  <link id="layuicss-laydate" rel="stylesheet" href="assets/js/laydate.css" media="all">
+  <link id="layuicss-layer" rel="stylesheet" href="assets/js/layer(1).css" media="all">
+  <link id="layuicss-skincodecss" rel="stylesheet" href="assets/js/code.css" media="all">
+  <script type="text/javascript" src="assets/js/jquery.showLoading.js"></script>
+  <script type="text/javascript" src="assets/js/ajaxfileupload.js"></script>
+  <script type="text/javascript" src="assets/js/jQuery.print.js"></script>
+  <script type="text/javascript" src="assets/js/kalendae.standalone.js"></script>
+  <script type="text/javascript" src="assets/js/json2.js"></script>
+  <script type="text/javascript" src="assets/js/flatpickr.js"></script>
+  <script type="text/javascript" src="assets/js/flatpickr.l10n.zh.js"></script>
+  <script type="text/javascript" src="assets/js/um.js"></script>
+
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=rUvDHOfS2tDTqKFEetiGUrbsCCGGlYIw&s=1">
+  </script>
+  <script src="assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+  <script src="assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script>
+  <script src="assets/js/echarts.min.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body class="compact-menu pace-done page-header-fixed page-sidebar-fixed">
+  <div class="overlay"></div>
+  <main class="page-content content-wrap" style="background-color: #f5f5f5;">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="sidebar-pusher">
+          <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
+            <i class="icon-arrow-right"></i>
+          </a>
+        </div>
+        <div class="logo-box">
+          <img id="logo-img" width="40px" height="40px" src="assets/images/logo.png">
+          <span id="logo-name"></span>井盖管理平台
+          <!-- <a href="index.html" class="logo-text"><span>路灯平台</span></a> -->
+        </div>
+        <div class="search-button">
+          <a href="javascript:void(0);" class="show-search"><i class="icon-magnifier"></i></a>
+        </div>
+        <div class="topmenu-outer">
+          <div class="top-menu">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  欢迎！
+                  <span class="user-name"><i class="fa fa-angle-down"></i></span>
+                  <img class="img-circle avatar" src="assets/images/avatar1.png" width="30" height="30" alt="">
+                </a>
+                <ul class="dropdown-menu dropdown-list" role="menu">
+                  <li role="presentation"><a href="javascript:;" class="change_password"><i
+                        class="icon-lock"></i>修改密码</a></li>
+                  <li role="presentation"><a href="javascript:;" class="pull_out"><i class="icon-user"></i>退出帐号</a></li>
+                </ul>
+              </li>
+            </ul><!-- Nav -->
+          </div><!-- Top Menu -->
+        </div>
+      </div>
+    </div><!-- Navbar -->
+    <div class="page-sidebar sidebar">
+      <div class="page-sidebar-inner slimscroll" style="padding-top: 0px;">
+        <ul class="menu accordion-menu">
+
+        </ul>
+      </div><!-- Page Sidebar Inner -->
+    </div><!-- Page Sidebar -->
+    <div class="page-inner">
+      <div class="page-title clearfix">
+        <p class="info-cont">当前位置：<i><a style="color: #606060;" href="javascript:;">智能巡检</a></i><i class="info-tail">巡防点管理</i></p>
+        <span class="time-cycle" id="time-cycle"></span>
+        <style type="text/css">
+          address,
+          caption,
+          cite,
+          code,
+          dfn,
+          em,
+          th,
+          var,
+          b,
+          i {
+            font-style: normal;
+            font-weight: normal;
+          }
+
+          .clearfix {
+            *zoom: 1;
+          }
+
+          .clearfix:before,
+          .clearfix:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+
+          .clearfix:after {
+            clear: both;
+          }
+
+          .info-cont {
+            line-height: 30px;
+            margin-bottom: 0px;
+            float: left;
+          }
+
+          .page-sidebar-fixed.page-header-fixed .page-inner {
+            padding-bottom: 0px;
+          }
+
+          .info-cont i:after {
+            display: inline-block;
+            content: '';
+            width: 7px;
+            height: 10px;
+            background: url(assets/images/position-nav_icon_arrow.png) no-repeat;
+            background-size: 7px 10px;
+            margin: 0 5px;
+          }
+
+          .info-cont i.info-tail {
+            color: #30B19B;
+          }
+
+          .info-cont i.info-tail:after {
+            color: #30B19B;
+            background: none;
+          }
+
+          .time-cycle {
+            line-height: 30px;
+            margin-right: 40px;
+            float: right;
+          }
+        </style>
+      </div>
+      <script type="text/javascript">
+        function __newstime() {
+          var today = new Date();
+          var year = today.getFullYear();
+          var month = today.getMonth() + 1;
+          var day = today.getDate();
+          var weekday = new Array(7);
+          weekday[0] = "星期天"
+          weekday[1] = "星期一"
+          weekday[2] = "星期二"
+          weekday[3] = "星期三"
+          weekday[4] = "星期四"
+          weekday[5] = "星期五"
+          weekday[6] = "星期六";
+          var hours = today.getHours();
+          var minutes = today.getMinutes();
+          var seconds = today.getSeconds();
+          if (minutes < 10) {
+            minutes = "0" + minutes;
+          }
+          if (seconds < 10) {
+            seconds = "0" + seconds;
+          }
+          var dt = year + '年' + month + '月' + day + '日' + ' ' + hours + ':' + minutes + ' ' + weekday[today.getDay()];
+          document.getElementById('time-cycle').innerHTML = dt;
+          setTimeout('__newstime()', 60000)
+        }
+        window.onload = __newstime;
+      </script>
+      <style type="text/css">
+        .r3_counter_box {
+          -ms-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          min-height: 160px;
+          background: #ffffff;
+          padding: 15px;
+        }
+
+        .live-situation-box,
+        .video-situation-box,
+        .singleton-situation-box {
+          width: 33.3%;
+          float: left;
+        }
+
+        .live-situation,
+        .video-situation,
+        .singleton-situation {
+          height: 130px;
+          font-size: 18px;
+          background: #f5f9fa;
+          color: #8f9297;
+          border-radius: 4px;
+          box-sizing: border-box;
+          padding: 15px;
+          margin-right: 10px;
+        }
+
+        .lh-40 {
+          line-height: 40px;
+        }
+
+        .num-font {
+          font-size: 50px;
+          color: #8f9297;
+        }
+
+        .backlog-box {
+          height: 130px;
+          margin: 0 10px;
+          background-color: #fff;
+          padding: 10px 20px 20px;
+          border-radius: 4px;
+        }
+
+        .backlog-header {
+          font-size: 20px;
+          line-height: 20px;
+          margin-bottom: 10px;
+        }
+
+        .course-backlog,
+        .singleton-backlog {
+          height: 34px;
+          line-height: 30px;
+          margin-bottom: 4px;
+          border-bottom: 1px solid #F5F5F6;
+        }
+
+        .course-item {
+          display: inline-block;
+          width: 80%;
+          color: #30B19B;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          float: left;
+        }
+
+        .weather {
+          height: 392px;
+          background-color: #fff;
+          padding-top: 5px;
+        }
+
+        .scrollbar {
+          height: 392px;
+          background: #fff;
+        }
+
+        .dynamic,
+        .service {
+          height: 210px;
+          background-color: #fff;
+          padding-top: 5px;
+        }
+
+        .problem-box,
+        .space-box,
+        .share-box {
+          background: #fff;
+          height: 100%;
+          border-radius: 4px;
+          /* padding: 10px 20px 20px; */
+          margin: 0 10px;
+          text-align: left;
+        }
+
+        .share-header,
+        .problem-header,
+        .service-header {
+          height: 50px;
+          font-size: 18px;
+          line-height: 50px;
+          /* margin-top: 15px; */
+        }
+
+        .problem_content {
+          height: 90px;
+          overflow: hidden;
+        }
+
+        .problem_content li {
+          line-height: 30px;
+          letter-spacing: 1px;
+        }
+
+        .problem_content li a {
+          display: block;
+          line-height: 30px;
+          text-decoration: none;
+          color: #999;
+          /* font-family: Arial; */
+          font-family: simkai;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 85%;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+
+        .service-box {
+          position: relative;
+          /* min-width: 284px; */
+          background: #fff;
+          height: 200px;
+          border-radius: 4px;
+          text-align: left;
+          /* padding: 10px 20px 10px; */
+          margin: 0 10px;
+        }
+
+        .service_man {
+          line-height: 24px;
+          margin: 10px 0;
+        }
+
+        .app-box {
+          width: 25%;
+          float: left;
+        }
+
+        .bomi_app {
+          text-align: center;
+        }
+
+        .bomi_app img {
+          display: block;
+          width: 100px;
+          height: 100px;
+          margin: 0 auto;
+        }
+
+        .bomi_app span {
+          font-size: 12px;
+        }
+
+        .flt {
+          float: left;
+        }
+
+        .copy p,
+        .copy_layout p {
+          font-size: 0.85em;
+          color: #555;
+        }
+
+        .copy p a,
+        .copy_layout p a {
+          color: #000;
+        }
+
+        .copy {
+          -ms-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          background: #fff;
+          text-align: center;
+          padding: 1.5em 0;
+        }
+
+        .cal1 {
+          margin-bottom: 0px;
+        }
+      </style>
+      <div id="main-wrapper">
+        <div style="width: 100%;">
+          <div style="width:20%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:23%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:26%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:60%;height: 3px;background: #4173b9;margin-bottom:3px;"></div>
+        </div>
+
+        <div class="content-main" style="height:100%; width:100%;">
+          <div id="left" style="float: left; width:60%;padding:10px;height:100%">
+            <form id="queryListForm">
+              <div class="SearhPanel">
+                <div id="headpoint"><i class="fa fa-search" id="headerArrow" style="font-size:10px;"></i></div>
+                <div class="SA1" id="SA1">
+                  <input type="button" value="新增巡防点" id="btnCreateCheckpoint"
+                    style="width:97px; height:30px;float:left!important;margin-top: 15px; margin-left:10px;"
+                    autocomplete="off">
+                  <input type="button" value="模板下载" id="btnCheckpointDownloadTemplate"
+                    style="width:97px; height:30px; float:left!important;margin-top: 15px; margin-left:10px;"
+                    autocomplete="off">
+
+                  <div class="button1" id="btnImportCheckpoint" style="float:left; position:relative; overflow:hidden; ">
+                    <span style="float:left; height:30px;width:100%;line-height:30px;">导入巡防点</span>
+                    <input type="file" id="checkpointXlsFile" name="checkpointXlsFile"
+                      style="position:absolute; top:0; right:0; height:100%;opacity:0; cursor:pointer;"
+                      autocomplete="off">
+                  </div>
+
+                  <input type="hidden" name="filter[&#39;del_flg&#39;]" value="0" autocomplete="off">
+                  <input type="hidden" name="filter[&#39;notCpType&#39;]" value="DIC_TYPE_048_02" autocomplete="off">
+                  <input type="text" id="searchKeyCp" name="filter[&#39;searchKey&#39;]" placeholder="输入关键字"
+                    autocomplete="off">
+                  <input type="button" id="btnSearch" value="搜索" autocomplete="off">
+                </div>
+                <div class="exp">
+                  <div id="BottomArrow"></div>
+                  <div class="SA2" id="SA2">
+                    <table width="100%" for="checkpointTable" class="table-searchbar">
+                      <tbody>
+                        <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;">
+                          <th width="15%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                              name="filter[&quot;checkpointCode&quot;]" autocomplete="off"><input type="text"
+                              _name="checkpointCode" placeholder="请输入巡防点编码" autocomplete="off"></th>
+                          <th width="20%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                              name="filter[&quot;checkpointName&quot;]" autocomplete="off"><input type="text"
+                              _name="checkpointName" placeholder="请输入巡防点名称" autocomplete="off"></th>
+                          <!-- <th width="10%" style="white-space: nowrap;">横坐标</th>
+					<th width="10%" style="white-space: nowrap;">纵坐标</th> -->
+                          <th width="30%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                              name="filter[&quot;checkpointDesc&quot;]" autocomplete="off"><input type="text"
+                              _name="checkpointDesc" placeholder="请输入巡防点描述" autocomplete="off"></th>
+                          <th width="20%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                              name="filter[&quot;rfidCardId&quot;]" autocomplete="off"><input type="text"
+                              _name="rfidCardId" placeholder="请输入RFID编号" autocomplete="off"></th>
+                          <th width="15%" style="min-width:70px; text-align: center;"><input type="button" value="搜索"
+                              autocomplete="off"></th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div style="margin: 0px; padding: 10px; position: relative;">
+                <span style="position:absolute; left:100px; bottom:25px; color:#aaa;">
+                  <!-- PS：蓝色列可作为关键字进行搜索 --></span>
+                <table width="100%" id="checkpointTable" showfilter="table-checkpointTable" searchbar="barrow#SA2">
+                  <tbody>
+                    <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;" id="barrow">
+                      <th width="15%" search="txt#checkpointCode" class="searchable fa fa-sort-after"
+                        sort="checkpoint_code" style="white-space: nowrap; display: table-cell;">巡防点编码</th>
+                      <th width="20%" search="txt#checkpointName" class="searchable fa fa-sort-after"
+                        sort="checkpoint_name" style="white-space: nowrap; display: table-cell;">巡防点名称</th>
+                      <!-- <th width="10%" style="white-space: nowrap;">横坐标</th>
+					<th width="10%" style="white-space: nowrap;">纵坐标</th> -->
+                      <th width="30%" search="txt#checkpointDesc" class="searchable fa fa-sort-after"
+                        sort="checkpoint_desc" style="white-space: nowrap; display: table-cell;">巡防点描述</th>
+                      <th width="20%" search="txt#rfidCardId" class="searchable fa fa-sort-after" sort="rfid_card_id"
+                        style="white-space: nowrap; display: table-cell;">RFID编号</th>
+                      <th width="15%" style="min-width:70px; text-align: center;"
+                        search="btn#search#$.umbrella.checkpointlist.barSearch">操作</th>
+                    </tr>
+                    <tr id="template" style="height:30px; display:none;" class="trCheckpoint">
+                      <td propkey="checkpointCode"></td>
+                      <td propkey="checkpointName"></td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;"></td>
+                      <td propkey="rfidCardId"></td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd31">xd31</td>
+                      <td propkey="checkpointName" title="xd31">xd31</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title="施工点检">施工点检
+                      </td>
+                      <td propkey="rfidCardId" title="5643">5643</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd01">xd01</td>
+                      <td propkey="checkpointName" title="一楼大厅">一楼大厅</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title="一期大厅处">
+                        一期大厅处</td>
+                      <td propkey="rfidCardId" title="xd01">xd01</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd02">xd02</td>
+                      <td propkey="checkpointName" title="一楼楼梯">一楼楼梯</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd02">xd02</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd03">xd03</td>
+                      <td propkey="checkpointName" title="办公区域">办公区域</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd03">xd03</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd04">xd04</td>
+                      <td propkey="checkpointName" title="员工通道">员工通道</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd04">xd04</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd05">xd05</td>
+                      <td propkey="checkpointName" title="实验室">实验室</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title="实验室重点监控区域">
+                        实验室重点监控区域</td>
+                      <td propkey="rfidCardId" title="xd05">xd05</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd06">xd06</td>
+                      <td propkey="checkpointName" title="物流区域">物流区域</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd06">xd06</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd07">xd07</td>
+                      <td propkey="checkpointName" title="一期停车厂">一期停车厂</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd07">xd07</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd08">xd08</td>
+                      <td propkey="checkpointName" title="二期停车厂">二期停车厂</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd08">xd08</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                    <tr style="height: 30px;" class="trCheckpoint">
+                      <td propkey="checkpointCode" title="xd09">xd09</td>
+                      <td propkey="checkpointName" title="东门门岗">东门门岗</td>
+                      <!-- <td propkey="coordinate_x"></td>
+					<td propkey="coordinate_y"></td>
+					<td propkey=""></td> -->
+                      <td propkey="checkpointDesc" style="white-space:normal; word-break: break-all;" title=""></td>
+                      <td propkey="rfidCardId" title="xd09">xd09</td>
+                      <td style="white-space: nowrap;">
+                        <div class="hidewithoutdata editdiv">
+                          <a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+                          <ul class="editul passvalid passvalid-top">
+                            <li class="fa fa-fw fa-edit mb10 beforefc-blue editcheckpoint">编辑</li>
+                            <li class="fa fa-fw fa-close beforefc-red del">删除</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <!-- <td propkey="actopts">...</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+                <style type="text/css">
+                  .am-pagination {
+                    padding-left: 0;
+                    margin: 0.5rem 0;
+                    list-style: none;
+                    color: #999999;
+                    text-align: left;
+                  }
+
+                  .am-pagination:before,
+                  .am-pagination:after {
+                    content: " ";
+                    display: table;
+                  }
+
+                  .am-pagination:after {
+                    clear: both;
+                  }
+
+                  .am-pagination>li {
+                    display: inline-block;
+                  }
+
+                  .am-pagination>li>a,
+                  .am-pagination>li>span {
+                    position: relative;
+                    display: block;
+                    padding: 0.5em 1em;
+                    text-decoration: none;
+                    line-height: 1.2;
+                    background-color: #ffffff;
+                    border: 1px solid #dddddd;
+                    border-radius: 0;
+                    margin-bottom: 5px;
+                    margin-right: 5px;
+                  }
+
+                  .am-pagination>li:last-child>a,
+                  .am-pagination>li:last-child>span {
+                    margin-right: 0;
+                  }
+
+                  .am-pagination>li>a:hover,
+                  .am-pagination>li>span:hover,
+                  .am-pagination>li>a:focus,
+                  .am-pagination>li>span:focus {
+                    background-color: #eeeeee;
+                  }
+
+                  .am-pagination>.am-active>a,
+                  .am-pagination>.am-active>span,
+                  .am-pagination>.am-active>a:hover,
+                  .am-pagination>.am-active>span:hover,
+                  .am-pagination>.am-active>a:focus,
+                  .am-pagination>.am-active>span:focus {
+                    z-index: 2;
+                    color: #ffffff;
+                    background-color: #0e90d2;
+                    border-color: #0e90d2;
+                    cursor: default;
+                  }
+
+                  .am-pagination>.am-disabled>span,
+                  .am-pagination>.am-disabled>span:hover,
+                  .am-pagination>.am-disabled>span:focus,
+                  .am-pagination>.am-disabled>a,
+                  .am-pagination>.am-disabled>a:hover,
+                  .am-pagination>.am-disabled>a:focus {
+                    color: #999999;
+                    background-color: #ffffff;
+                    border-color: #dddddd;
+                    cursor: not-allowed;
+                    pointer-events: none;
+                  }
+
+                  .am-pagination .am-pagination-prev {
+                    float: left;
+                  }
+
+                  .am-pagination .am-pagination-prev a {
+                    border-radius: 0;
+                  }
+
+                  .am-pagination .am-pagination-next {
+                    float: right;
+                  }
+
+                  .am-pagination .am-pagination-next a {
+                    border-radius: 0;
+                  }
+
+                  .am-pagination-centered {
+                    text-align: center;
+                  }
+
+                  .am-pagination-right {
+                    text-align: right;
+                  }
+
+                  span.pager_turnto {
+                    margin: 0 !important;
+                    padding: 0 15px 0 10px !important;
+                    display: inline-block !important;
+                  }
+
+                  span.pager_turnto:before {
+                    font-size: 16px !important;
+                  }
+                </style>
+                <div class="am-fr pager_div" style="padding: 0px;margin: 0px;float:right;margin-right:13px;">
+                  <ul class="am-pagination" style="margin-right: 18px;">
+                    <li>
+                      <select class="pager_perpage_rowcnt" autocomplete="off">
+                        <option value="5">5行/页</option>
+                        <option value="10" selected="selected">10行/页</option>
+                        <option value="20">20行/页</option>
+                        <option value="30">30行/页</option>
+                        <option value="50">50行/页</option>
+                        <option value="100">100行/页</option>
+                      </select>
+                    </li>
+                    <li>查询到<font color="#f00;" class="pager_totalrow">22</font>条记录　</li>
+                    <li><a href="javascript:void(0);" class="pager_first">首页</a></li>
+                    <!-- 显示上一页 -->
+                    <li><a href="javascript:void(0);" class="pager_pre">上一页</a></li>
+                    <!--当前页 -->
+                    <li class="am-disabled"><span class="pager_current">1 / 3</span></li>
+                    <!-- 显示下一页 -->
+                    <li><a href="javascript:void(0);" class="pager_next">下一页</a></li>
+                    <!-- 最后一页 -->
+                    <li><a href="javascript:void(0);" class="pager_last">尾页</a></li>
+                    <!-- 跳转 -->
+                    <li>
+                      跳转至：&nbsp;<input type="text"
+                        style="height:20px; width:40px;  margin-bottom:3px;border:  gainsboro 1px solid; text-align:center; display:inline-block;"
+                        name="textfield" id="textfield" class="general_input2 pager_turnToPage" autocomplete="off">
+                      &nbsp;<span class="fa fa-fw fa-angle-right pager_turnto"></span>
+                    </li>
+                  </ul>
+                  <input type="hidden" class="_hid_pager_current" value="1"><input type="hidden"
+                    class="_hid_pager_totalpage" value="3"><input type="button" id="__hidBtnSearch"
+                    style="display:none">
+                </div>
+                <div style="clear:both;"></div>
+
+                <div class="table-col-filter">
+                  <div><span class="fa fa-th filter-icon"></span></div>
+                </div>
+              </div>
+              <input type="text" style="display:none;" autocomplete="off">
+            </form>
+          </div>
+
+          <div id="right" style="float: left;padding:10px; height:100%;width:40%;">
+            <form id="sopQueryListForm" style="width: 100%">
+              <div class="SearhPanel">
+                <div class="SA1" id="SA1">
+                  <input type="button" value="批量管理" id="btnMultiOperateSop"
+                    style="width:97px; height:30px; float:left!important;margin-top: 15px; margin-left:10px;"
+                    autocomplete="off">
+                  <input type="hidden" name="filter[&#39;del_flg&#39;]" value="0" autocomplete="off">
+                  <input type="text" id="searchKeySop" name="filter[&#39;searchKey&#39;]" placeholder="输入关键字"
+                    autocomplete="off">
+
+                  <input type="hidden" id="businessType" name="filter[&#39;businessType&#39;]" value="DIC_TYPE_048_01"
+                    autocomplete="off">
+                  <input type="button" id="btnSopSearch" value="搜索" autocomplete="off">
+                </div>
+                <!-- <div class="exp">
+				<div id="BottomArrow"></div>
+				<div class="SA2" id="SA2"></div>
+			</div> -->
+              </div>
+              <input type="hidden" id="checkpointId" name="checkpointId" autocomplete="off">
+              <!-- <button id="btnMultiOperateSop" type="button" style="width:97px; height:30px; float:left; margin-left:10px;">批量管理</button>
+		<div style="float:right; margin-right:20px;position: relative;">
+			<input type="text" id="searchKeySop" style="width:200px; padding-left:25px;" name="filter['searchKey']" placeholder="输入关键字"/>
+			<span class="fa fa-fw fa-search left-icon-200" id="btnSopSearch"></span>
+			<input type="text" style="display:none;"/>
+		</div> -->
+              <div style="clear:both;"></div>
+              <div style="padding:10px; background:white;">
+                <table width="100%" id="sopTable">
+                  <tbody>
+                    <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;">
+                      <th width="25%" style="white-space: nowrap;">SOP名称</th>
+                      <!-- <th width="25%" style="white-space: nowrap;">SOP类型</th>
+					<th width="15%" style="min-width:70px; text-align: center;">操作</th> -->
+                    </tr>
+                    <tr id="template" style="height:30px; display:none;">
+                      <td propkey="sopName"></td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="灭火器检查">灭火器检查</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="人员是否在岗">人员是否在岗</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="门窗是否关闭">门窗是否关闭</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="办公室：无垃圾、无灰尘，垃圾不超过垃圾桶的2/3">办公室：无垃圾、无灰尘，垃圾不超过垃圾桶的2/3</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="大厅地面及门窗：无垃圾、无污渍">大厅地面及门窗：无垃圾、无污渍</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="后大厅玻璃及门窗：无手印">后大厅玻璃及门窗：无手印</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="茶水间：无油渍、无垃圾、无灰尘">茶水间：无油渍、无垃圾、无灰尘</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="男女洗手间：无水渍、无手印、无异味、垃圾不超过垃圾桶的2/3">男女洗手间：无水渍、无手印、无异味、垃圾不超过垃圾桶的2/3</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="走廊：无垃圾、无灰尘">走廊：无垃圾、无灰尘</td>
+                    </tr>
+                    <tr style="height: 30px;">
+                      <td propkey="sopName" title="餐厅/地面/桌面/洗手槽：无油渍、无垃圾、无灰尘、无水渍">餐厅/地面/桌面/洗手槽：无油渍、无垃圾、无灰尘、无水渍</td>
+                      <!-- <td propkey="soptype_name"></td>
+					<td style="white-space: nowrap;">
+						<div class="hidewithoutdata editdiv">
+							<a href="javascript:void(0);" class="fa fa-fw fa-ellipsis-h" style="font-size:18px;"></a>
+							<ul class="editul passvalid passvalid-top">
+								<li class="fa fa-fw fa-edit mb10 beforefc-blue editsop">编辑</li>
+								<li class="fa fa-fw fa-close beforefc-red delSop">删除</li>
+							</ul>
+						</div>
+					</td> -->
+                    </tr>
+                  </tbody>
+                </table>
+
+                <style type="text/css">
+                  .am-pagination {
+                    padding-left: 0;
+                    margin: 0.5rem 0;
+                    list-style: none;
+                    color: #999999;
+                    text-align: left;
+                    white-space: nowrap;
+                  }
+
+                  .am-pagination:before,
+                  .am-pagination:after {
+                    content: " ";
+                    display: table;
+                  }
+
+                  .am-pagination:after {
+                    clear: both;
+                  }
+
+                  .am-pagination>li {
+                    display: inline-block;
+                  }
+
+                  .am-pagination>li>a,
+                  .am-pagination>li>span {
+                    position: relative;
+                    display: block;
+                    padding: 0.5em 1em;
+                    text-decoration: none;
+                    line-height: 1.2;
+                    background-color: #ffffff;
+                    border: 1px solid #dddddd;
+                    border-radius: 0;
+                    margin-bottom: 5px;
+                    /* margin-right: 5px; */
+                  }
+
+                  .am-pagination>li:last-child>a,
+                  .am-pagination>li:last-child>span {
+                    margin-right: 0;
+                  }
+
+                  .am-pagination>li>a:hover,
+                  .am-pagination>li>span:hover,
+                  .am-pagination>li>a:focus,
+                  .am-pagination>li>span:focus {
+                    background-color: #eeeeee;
+                  }
+
+                  .am-pagination>.am-active>a,
+                  .am-pagination>.am-active>span,
+                  .am-pagination>.am-active>a:hover,
+                  .am-pagination>.am-active>span:hover,
+                  .am-pagination>.am-active>a:focus,
+                  .am-pagination>.am-active>span:focus {
+                    z-index: 2;
+                    color: #ffffff;
+                    background-color: #0e90d2;
+                    border-color: #0e90d2;
+                    cursor: default;
+                  }
+
+                  .am-pagination>.am-disabled>span,
+                  .am-pagination>.am-disabled>span:hover,
+                  .am-pagination>.am-disabled>span:focus,
+                  .am-pagination>.am-disabled>a,
+                  .am-pagination>.am-disabled>a:hover,
+                  .am-pagination>.am-disabled>a:focus {
+                    color: #999999;
+                    background-color: #ffffff;
+                    border-color: #dddddd;
+                    cursor: not-allowed;
+                    pointer-events: none;
+                  }
+
+                  .am-pagination .am-pagination-prev {
+                    float: left;
+                  }
+
+                  .am-pagination .am-pagination-prev a {
+                    border-radius: 0;
+                  }
+
+                  .am-pagination .am-pagination-next {
+                    float: right;
+                  }
+
+                  .am-pagination .am-pagination-next a {
+                    border-radius: 0;
+                  }
+
+                  .am-pagination-centered {
+                    text-align: center;
+                  }
+
+                  .am-pagination-right {
+                    text-align: right;
+                  }
+                  .clickRow{
+                  background-color: #647c9a !important;
+                  color: white;
+                  }
+
+                  .contents{
+                  padding-bottom:0px;
+                  }
+                  #left{
+                  position: relative;
+                  }
+                  #left .exp{
+                  top:65px;
+                  }
+                  #left #headpoint {
+                  top:50px;
+                  }
+                  #left .extsearch .exp{
+                  top:5px;
+                  }
+                  #left .extsearch #headpoint{
+                  top:-10px;
+                  }
+                  #right{
+                  position: relative;
+                  }
+                  #right .exp{
+                  top:65px;
+                  }
+                  #right #headpoint {
+                  top:50px;
+                  }
+                  #right .extsearch .exp{
+                  top:5px;
+                  }
+                  #right .extsearch #headpoint{
+                  top:-10px;
+                  }
+
+                  .SA1 .button1 {
+                  width:97px;
+                  height:30px;
+                  background-color:#4173b9;
+                  border-radius:15px;
+                  color:white;
+                  float: left;
+                  margin-left: 10px;
+                  margin-top: 15px;
+                  text-align: center;
+                  }
+                </style>
+                <div class="am-fr pager_div" style="padding: 0px;margin: 0px;float:right;margin-right:13px;">
+                  <ul class="am-pagination" style="margin-right: 18px;">
+                    <li>查询到<font color="#f00;" class="pager_totalrow">27</font>条记录　</li>
+                    <li><a href="javascript:void(0);" class="pager_pre">上一页</a></li>
+                    <!--当前页 -->
+                    <li class="am-disabled"><span class="pager_current">1 / 3</span></li>
+                    <!-- 显示下一页 -->
+                    <li><a href="javascript:void(0);" class="pager_next">下一页</a></li>
+                  </ul>
+                  <input type="hidden" class="_hid_pager_current" value="1"><input type="hidden"
+                    class="_hid_pager_totalpage" value="3"><input type="button" id="__hidBtnSearch"
+                    style="display:none">
+                </div>
+                <div style="clear:both;"></div>
+
+              </div>
+              <input type="text" style="display:none;" autocomplete="off">
+            </form>
+          </div>
+          <iframe id="checkpointTempDownload" name="checkpointTempDownload" style="display:none;"
+            src="./saved_resource.html"></iframe>
+        </div>
+      </div><!-- Main Wrapper -->
+       <div class="main">
+           <div class="layui-layer layui-layer-page" id="layui-layer3" type="page" times="3" showtime="0"
+             contype="string" style="z-index: 19891017; width: 60%; top: 208.5px; left: 180px;">
+             <div class="layui-layer-title" style="cursor: move;">新增巡防点</div>
+             <div id="" class="layui-layer-content" style="height: 435px;">
+               <div style="padding:5px 20px 20px 5px;">
+                 <div style="width:55%;float: left;">
+                   <form id="checkpointCreateForm" class="form">
+                     <input type="hidden" id="id" name="id" value="" autocomplete="off">
+                     <input type="hidden" id="selectedSopIds" name="selectedSopIds" value="" autocomplete="off">
+                     <div id="content1" class="form-content">
+                       <div class="panel">
+                         <div class="content-panel">
+                           <ul class="table" style="margin-bottom:20px;">
+                             <li>
+                               <div class="title" style="width:25%;"><span style="color:red;">*
+                                 </span>巡防点编码<br>Checkpoint Code
+                               </div>
+                               <div class="value" style="width:75%;">
+                                 <input propkey="checkpointCode" type="text" placeholder="请输入巡防点编码"
+                                   validate="required,func=$.umbrella.editcheckpoint.checkunique" style="width:100%;"
+                                   id="checkpointCode" name="checkpointCode" value="" maxlength="40" autocomplete="off">
+                               </div>
+                             </li>
+                           </ul>
+
+                           <ul class="table">
+                             <li>
+                               <div class="title" style="width:25%;"><span style="color:red;">*
+                                 </span>巡防点名称<br>Checkpoint Name
+                               </div>
+                               <div class="value" style="width:75%;">
+                                 <input propkey="checkpointName" type="text" placeholder="请输入巡防点名称"
+                                   validate="required,checkpointName" style="width:100%;" id="checkpointName"
+                                   name="checkpointName" value="" maxlength="50" autocomplete="off">
+                               </div>
+                             </li>
+                           </ul>
+                           <ul class="table">
+                             <li>
+                               <div class="title" style="width:25%;"><span style="color:red;">* </span>RFID
+                                 编号<br>RFID Code</div>
+                               <div class="value" style="width:75%;">
+                                 <input propkey="rfidCardId" type="text" placeholder="RFID 编号"
+                                   validate="required,func=$.umbrella.editcheckpoint.checkuniqueRfid"
+                                   style="width:100%;" id="rfidCardId" name="rfidCardId" value="" maxlength="40"
+                                   autocomplete="off">
+                               </div>
+                             </li>
+                           </ul>
+                           <ul class="table">
+                             <li>
+                               <div class="title" style="width:25%;">巡防点描述<br>Checkpoint Description</div>
+                               <div class="value" style="width:75%;">
+                                 <textarea propkey="checkpointDesc" id="checkpointDesc" name="checkpointDesc"
+                                   maxlength="200" validate="maxlength=200" placeholder="请输入200字以内的信息" class="block"
+                                   style="width:100%; height:50px; margin-top:5px;" autocomplete="off"></textarea><label
+                                   class="counter"
+                                   style="position: absolute; font-weight: normal; color: gray; opacity: 0.6; margin:
+                                   0px; padding: 0px; top: 220px; left: 508.594px;"
+                                   for="checkpointDesc"><span>&nbsp;&nbsp;0</span>/200</label>
+                               </div>
+                             </li>
+                           </ul>
+
+                           <ul class="table1" style="height: 40px;">
+                             <li>
+                               <div class="title" style="width:25%;"><span style="color:red;">* </span>SOP类型
+                               </div>
+                               <div class="input-row" style="width: 75%; height: 30px;" id="divSop">
+                                 <input name="cbxSopType" type="checkbox" value="9000220d0baf409aaa28ac8139bcf6e1"
+                                   autocomplete="off">门岗&nbsp;&nbsp;<input name="cbxSopType" type="checkbox"
+                                   value="bc85feac282c48d79fa3126e7c2d91a3" autocomplete="off">8楼巡检&nbsp;&nbsp;<input
+                                   name="cbxSopType" type="checkbox" value="039c91f9dc414e1ea4795be69db432ce"
+                                   autocomplete="off">4楼&nbsp;&nbsp;<input name="cbxSopType" type="checkbox"
+                                   value="f1aea399367c4595b5baf172690b366b" autocomplete="off">3楼&nbsp;&nbsp;<input
+                                   name="cbxSopType" type="checkbox" value="b15f65f7ed3c411aa251ec9ea9e0ad49"
+                                   autocomplete="off">2楼<br><input name="cbxSopType" type="checkbox"
+                                   value="55b846e6eacc409092f71c7bd049bc11" autocomplete="off">1楼&nbsp;&nbsp;<input
+                                   name="cbxSopType" type="checkbox" value="222fc1eac7c84757a6d5535aadc1465a"
+                                   autocomplete="off">5楼&nbsp;&nbsp;<input name="cbxSopType" type="checkbox"
+                                   value="d3fd15b2e0564233888d2647c604d9c0" autocomplete="off">消防项&nbsp;&nbsp;<input
+                                   name="cbxSopType" type="checkbox" value="70b6bac2e4134207b790f951e6bfce21"
+                                   autocomplete="off">常规项<br></div>
+                             </li>
+                           </ul>
+                         </div>
+
+                         <div class="button-panel">
+                           <div id="btnReset" class="form-button reset">
+                             <i class="fa fa-undo"></i><span>&nbsp;&nbsp;重置/Reset</span>
+                           </div>
+                           <div id="btnSave" class="form-button submit">
+                             <i class="fa fa-plus-circle"></i><span>&nbsp;&nbsp;保存/Submit</span>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <input type="text" style="display:none;">
+                   </form>
+                 </div>
+
+                 <div style="width:45%;float: left;" id="sopContainerEdit">
+                   <div style="padding:10px 20px 0 20px;">
+                     <form id="sopQueryListFormEdit">
+                       <div style="float:right; margin-right:20px;position: relative;">
+                         <input type="hidden" id="sopTypeId" name="filter['sopTypeId']" value="" autocomplete="off">
+                         <input type="hidden" id="noBusinessType" name="filter['noBusinessType']"
+                           value="DIC_TYPE_048_02" autocomplete="off">
+                         <input type="text" id="searchKeySopType" style="width:200px; padding-left:25px;"
+                           name="filter['searchKey']" placeholder="输入关键字" autocomplete="off">
+                         <span class="fa fa-fw fa-search left-icon-200" id="btnSopSearchEdit"></span>
+                         <input type="text" style="display:none;" autocomplete="off">
+                       </div>
+                       <div style="clear:both;"></div>
+                       <div style="margin:0 0 0 0; padding:0; background:white;">
+                         <table width="100%" id="sopTableEdit">
+                           <tbody>
+                             <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;">
+                               <th width="3%">
+                                 <!-- <input type="checkbox" id="checkAll"/> -->
+                               </th>
+                               <th width="25%" style="white-space: nowrap;">SOP名称</th>
+                               <!-- <th width="25%" style="white-space: nowrap;">SOP类型</th>
+						<th width="15%" style="min-width:70px; text-align: center;">操作</th> -->
+                             </tr>
+                             <tr id="template" style="height:30px; display:none;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"></td>
+                               <td propkey="sopName"></td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="87b550c3be7d4780b1e401c82987af87"></td>
+                               <td propkey="sopName" title="灭火器检查">灭火器检查</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="236e08757c644739bead207542546450"></td>
+                               <td propkey="sopName" title="人员是否在岗">人员是否在岗</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="d745d8c1fa4f4f7f94fb10b793894a6d"></td>
+                               <td propkey="sopName" title="门窗是否关闭">门窗是否关闭</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="3d7962f7b21a4ecea94ecde482fe52ca"></td>
+                               <td propkey="sopName" title="办公室：无垃圾、无灰尘，垃圾不超过垃圾桶的2/3">办公室：无垃圾、无灰尘，垃圾不超过垃圾桶的2/3
+                               </td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="3f136596cc044d12bb97abf356b715a5"></td>
+                               <td propkey="sopName" title="大厅地面及门窗：无垃圾、无污渍">大厅地面及门窗：无垃圾、无污渍</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="4ee9233630d54e0e84fcdc05d2dcd2cf"></td>
+                               <td propkey="sopName" title="后大厅玻璃及门窗：无手印">后大厅玻璃及门窗：无手印</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="66db845d84dd4ee5b713bc61430207af"></td>
+                               <td propkey="sopName" title="茶水间：无油渍、无垃圾、无灰尘">茶水间：无油渍、无垃圾、无灰尘</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="b6135e877dc34330bfa2bdffc9a79da8"></td>
+                               <td propkey="sopName" title="男女洗手间：无水渍、无手印、无异味、垃圾不超过垃圾桶的2/3">
+                                 男女洗手间：无水渍、无手印、无异味、垃圾不超过垃圾桶的2/3</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="b700b14a08084c3a832afa57ed284c0a"></td>
+                               <td propkey="sopName" title="走廊：无垃圾、无灰尘">走廊：无垃圾、无灰尘</td>
+                             </tr>
+                             <tr style="height: 30px;">
+                               <td><input type="checkbox" propkey="id" autocomplete="off"
+                                   value="cbf318c2902447fc8b06c1bffcffe99c"></td>
+                               <td propkey="sopName" title="餐厅/地面/桌面/洗手槽：无油渍、无垃圾、无灰尘、无水渍">
+                                 餐厅/地面/桌面/洗手槽：无油渍、无垃圾、无灰尘、无水渍</td>
+                             </tr>
+                           </tbody>
+                         </table>
+
+                         <style type="text/css">
+                           .am-pagination {
+                             padding-left: 0;
+                             margin: 0.5rem 0;
+                             list-style: none;
+                             color: #999999;
+                             text-align: left;
+                             white-space: nowrap;
+                           }
+
+                           .am-pagination:before,
+                           .am-pagination:after {
+                             content: " ";
+                             display: table;
+                           }
+
+                           .am-pagination:after {
+                             clear: both;
+                           }
+
+                           .am-pagination>li {
+                             display: inline-block;
+                           }
+
+                           .am-pagination>li>a,
+                           .am-pagination>li>span {
+                             position: relative;
+                             display: block;
+                             padding: 0.5em 1em;
+                             text-decoration: none;
+                             line-height: 1.2;
+                             background-color: #ffffff;
+                             border: 1px solid #dddddd;
+                             border-radius: 0;
+                             margin-bottom: 5px;
+                             /* margin-right: 5px; */
+                           }
+
+                           .am-pagination>li:last-child>a,
+                           .am-pagination>li:last-child>span {
+                             margin-right: 0;
+                           }
+
+                           .am-pagination>li>a:hover,
+                           .am-pagination>li>span:hover,
+                           .am-pagination>li>a:focus,
+                           .am-pagination>li>span:focus {
+                             background-color: #eeeeee;
+                           }
+
+                           .am-pagination>.am-active>a,
+                           .am-pagination>.am-active>span,
+                           .am-pagination>.am-active>a:hover,
+                           .am-pagination>.am-active>span:hover,
+                           .am-pagination>.am-active>a:focus,
+                           .am-pagination>.am-active>span:focus {
+                             z-index: 2;
+                             color: #ffffff;
+                             background-color: #0e90d2;
+                             border-color: #0e90d2;
+                             cursor: default;
+                           }
+
+                           .am-pagination>.am-disabled>span,
+                           .am-pagination>.am-disabled>span:hover,
+                           .am-pagination>.am-disabled>span:focus,
+                           .am-pagination>.am-disabled>a,
+                           .am-pagination>.am-disabled>a:hover,
+                           .am-pagination>.am-disabled>a:focus {
+                             color: #999999;
+                             background-color: #ffffff;
+                             border-color: #dddddd;
+                             cursor: not-allowed;
+                             pointer-events: none;
+                           }
+
+                           .am-pagination .am-pagination-prev {
+                             float: left;
+                           }
+
+                           .am-pagination .am-pagination-prev a {
+                             border-radius: 0;
+                           }
+
+                           .am-pagination .am-pagination-next {
+                             float: right;
+                           }
+
+                           .am-pagination .am-pagination-next a {
+                             border-radius: 0;
+                           }
+
+                           .am-pagination-centered {
+                             text-align: center;
+                           }
+
+                           .am-pagination-right {
+                             text-align: right;
+                           }
+                         </style>
+                         <div class="am-fr pager_div" style="padding: 0px;margin: 0px;float:right;margin-right:13px;">
+                           <ul class="am-pagination" style="margin-right: 18px;">
+                             <li>查询到<font color="#f00;" class="pager_totalrow">27</font>条记录　</li>
+                             <li><a href="javascript:void(0);" class="pager_pre">上一页</a></li>
+                             <!--当前页 -->
+                             <li class="am-disabled"><span class="pager_current">1 / 3</span></li>
+                             <!-- 显示下一页 -->
+                             <li><a href="javascript:void(0);" class="pager_next">下一页</a></li>
+                           </ul>
+                         </div>
+                         <div style="clear:both;"></div>
+
+                       </div>
+                       <input type="hidden" class="_hid_pager_current" value="1" autocomplete="off"><input type="hidden"
+                         class="_hid_pager_totalpage" value="3" autocomplete="off"><input type="button"
+                         id="__hidBtnSearch" style="display:none" autocomplete="off"><input type="text"
+                         style="display:none;">
+                     </form>
+                   </div>
+                 </div>
+               </div>
+             </div><span class="layui-layer-setwin closemain">X</span>
+           </div>
+       </div>
+       <style>
+          .main {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(102, 68, 68, 0.3);
+            display: none;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            /* padding: 0; */
+          }
+          .layui-layer-page{
+            width: 60%;
+            height: 477px;
+            position: absolute;
+            overflow: hidden;
+            border: 1px solid red;
+            left: 80%;
+            background: #fff;
+            z-index: 19892000;
+          }
+          .layui-layer-title{
+            width: 100%;
+            height: 42px;
+            padding: 0 80px 0 20px;
+            line-height: 42px;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            color: #000;
+            overflow: hidden;
+            background-color: #F8F8F8;
+          }
+          .layui-layer-content{
+            position: relative;
+            width: 100%;
+            height: 435px;
+            font-size: 12px;
+          }
+          form{
+            display: block;
+          }
+          .content{
+            display: block;
+          }
+          .form-content{
+            width: 90%;
+            height: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+          }
+          .panel{
+            width: 100%;
+            float: left;
+            padding: 1% 2%;
+            border: none;
+          }
+          .checker{
+            display: none;
+          }
+          .table1 .title{
+            display: block;
+            width: 25%;
+          }
+          .input-row{
+            margin-left: 25%;
+            display: block;
+            width: 75%
+          }
+          .layui-layer-setwin{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* background-color: red; */
+            margin-top: 11px;
+            margin-right: 11px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+          }
+       </style>
+    </div><!-- Page Inner -->
+  </main><!-- Page Content -->
+  
+  <audio id="alarm_voice" loop="loop" src="audio/alarm.mp3" type="audio/mp3"></audio>
+
+  <!-- Javascripts -->
+  <script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+  <!-- <script src="assets/js/jquery.min.js"></script> -->
+
+  <script src="assets/js/distpicker.data.js"></script>
+  <script src="assets/js/distpicker.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+  <script src="assets/plugins/toastr/toastr.min.js"></script>
+
+  <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="assets/plugins/pace-master/pace.min.js"></script>
+  <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="assets/plugins/switchery/switchery.min.js"></script>
+  <script src="assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
+  <script src="assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+  <script src="assets/plugins/waves/waves.min.js"></script>
+  <script src="assets/plugins/3d-bold-navigation/js/main.js"></script>
+  <script src="assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="assets/js/layers.min.js"></script>
+  <script src="assets/js/pages/charts-sparkline.js"></script>
+  <script src="assets/js/moment-2.2.1.js" type="text/javascript"></script>
+  <script src="assets/js/clndr.js" type="text/javascript"></script>
+  <script src="assets/js/site.js" type="text/javascript"></script>
+  <script src="assets/js/sweet-alert.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/zhwnl.js"></script>
+  <script src="layer-v3.1.0/layer/layer.js"></script>
+  <script src="assets/js/jquery.mloading.js"></script>
+  <script src="assets/js/pager.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/checkpointManage.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    // $.ajaxSetup({
+    //   cache: false
+    // });
+    // $.umbrella.basepath = "";
+    $(function(){
+      $("#btnCreateCheckpoint").click(function(){
+        console.log(1)
+        $(".main").fadeIn();
+      });
+      $(".closemain").click(function(){
+        $(".main").fadeOut();
+      });
+    });
+  </script>
+  <script>
+    $.umbrella.checkpointlist = {
+      // create:function() {
+      //   $.umbrella.dialog.open($.umbrella.basepath + "/patrol/checkpoint/addCheckpoint", "新增巡防点", null, function(){
+      //     $("#queryListForm").reloadTableData();
+      //   }, {area:["60%"]});
+      // },
+      editCheckpoint:function(id) {
+        var param = {"id":id};
+        $.umbrella.dialog.open($.umbrella.basepath + "/patrol/checkpoint/editCheckpoint", "编辑巡防点", param, function() {
+          $("#queryListForm").reloadTableData();
+        }, {area:["60%"]});
+      },
+      del:function(id) {
+        $.ajax({
+          url: $.umbrella.basepath + "/patrol/checkpoint/deleteByIds",
+          method:"post",
+          dataType:"json",
+          data:{ids:id},
+          success:function(result, status) {
+            if (result.success === true) {
+              alert(result.errorMsg, $.umbrella.alerticon.success);
+              $("#queryListForm").reloadTableData();
+            } else {
+              alert(result.errorMsg, $.umbrella.alerticon.error);
+            }
+          }
+        });
+      },
+      multiOperateSop: function(){
+        $.umbrella.dialog.open($.umbrella.basepath + "/patrol/checkpoint/multiOperateSop", "批量管理SOP", null, function(){
+          $("#queryListForm").reloadTableData();
+        }, {area:["80%"]});
+      },
+      setTableData:function(result) {
+        $("#checkpointTable").fillListData(result.data, {
+          //"rowCntPerPage": 10,
+          "rowCntPerPage": result.rows,
+          "saveRowData": true,
+          "tableDataBoundCallBack":function() {
+            $(".editcheckpoint").unbind("click").click(function() {
+              var rowdata = $(this).closest("tr").getTableRowData();
+              $.umbrella.checkpointlist.editCheckpoint(rowdata.id);
+            });
+            $(".del").unbind("click").click(function() {
+              var rowdata = $(this).closest("tr").getTableRowData();
+              $.delConfirm({ensureCallback:function() {
+                $.umbrella.checkpointlist.del(rowdata.id);
+              }});
+            });
+          }
+        });
+
+        $(".editdiv > a:visible").click(function(event) {
+          if (!$(this).hasClass("fc-blue")) {
+            $(".editdiv > a").removeClass("fc-blue");
+            $(".editdiv > ul.editul").slideUp(300);
+            $(this).addClass("fc-blue");
+            $(this).next("ul.editul").slideDown(300, function() {
+              var $this = $(this);
+              $(this).children("li").click(function() {
+                $(".editdiv > a").removeClass("fc-blue");
+                $this.slideUp(300);
+              });
+            });
+          }
+          $.stopPropagation(event);
+        });
+        $(".editdiv > ul.editul").click(function(event) {
+          $.stopPropagation(event);
+        });
+        $("body").click(function() {
+          $(".editdiv > a").removeClass("fc-blue");
+          $(".editdiv > ul.editul").slideUp(300);
+        });
+
+        $(".trCheckpoint:visible").unbind("click").click(function() {
+          $(".trCheckpoint").removeClass("clickRow");
+          $(this).addClass("clickRow");
+          var rowdata = $(this).closest("tr").getTableRowData();
+          if(rowdata!=null && rowdata!= undefined){
+            var checkpointId = rowdata.id;
+            $("#checkpointId").val(checkpointId);
+            $("#sopQueryListForm").reloadTableData();
+          }
+        });
+      },
+      setSopTableData: function(result) {
+        $("#sopTable").fillListData(result.data, {
+          "rowCntPerPage": 10,
+          "saveRowData": true,
+          "tableDataBoundCallBack":function() {
+          }
+        });
+      }
+    };
+
+    $(function(){
+      $("#checkpointTable").pager({
+      //pageSize:10,
+        url: $.umbrella.basepath + "/patrol/checkpoint/listCheckpoint",
+        target:"checkpointTable",
+        searchbtn:"btnSearch",
+        success:$.umbrella.checkpointlist.setTableData,
+        paramFormId:"queryListForm",
+        searchOnLoad:true
+      });
+
+      $("#searchKeyCp").keypress(function(event) {
+        if (event.keyCode == "13") {
+          $("#queryListForm").reloadTableData();
+        }
+      });
+
+      $("#sopTable").pager({
+      //pageSize:10,
+        url: $.umbrella.basepath + "/patrol/checkpoint/getSopByCheckpointId",
+        target:"sopTable",
+        searchbtn:"btnSopSearch",
+        //success:$.umbrella.checkpointlist.setSopTableData,
+        paramFormId:"sopQueryListForm",
+        searchOnLoad:true
+      });
+
+      $("#searchKeySop").keypress(function(event) {
+        if (event.keyCode == "13") {
+          $("#sopQueryListForm").reloadTableData();
+        }
+      });
+
+    //创建巡防点
+      // $("#btnCreateCheckpoint").click($.umbrella.checkpointlist.create);
+
+    //批量操作SOP
+      $("#btnMultiOperateSop").click($.umbrella.checkpointlist.multiOperateSop);
+
+    //下载模板
+      $("#btnCheckpointDownloadTemplate").click(function() {
+        $("#checkpointTempDownload").attr("src", $.umbrella.basepath + "/patrol/checkpoint/exportTemplate");
+      });
+
+    //文件上传导入
+      $("#btnImportCheckpoint :file").change(function() {
+        $.ajaxFileUpload({
+          url: $.umbrella.basepath + "/patrol/checkpoint/importCheckpoint",
+          method:"post",
+          fileElementId:"checkpointXlsFile",
+          dataType:"json",
+          success:function(result, status) {
+            if (result.success === true) {
+              alert(result.errorMsg, $.umbrella.alerticon.success);
+            } else {
+              alert(result.errorMsg, $.umbrella.alerticon.error);
+            }
+            $("#queryListForm").reloadTableData();
+          }
+        });
+      });
+    })
+  </script>
+  <script type="text/javascript">
+    $.umbrella.editcheckpoint = {
+      save: function () {
+        var validateResult = $("#checkpointCreateForm").validate();
+
+        var sopIds = $("#selectedSopIds").val();
+
+        /* $("#sopTableEdit td :checkbox:visible:checked").each(function() {
+        	sopIds += ("," + $(this).val());
+        }); */
+
+        if (sopIds == null || sopIds == '') {
+          alert("请选择SOP！");
+          return;
+        }
+        var id = $("#id").val();
+        var checkpointCode = $("#checkpointCode").val();
+        var checkpointName = $("#checkpointName").val();
+        var rfidCardId = $("#rfidCardId").val();
+        var checkpointDesc = $("#checkpointDesc").val();
+        var cpType = "DIC_TYPE_048_01";
+        var data = {
+          id: id,
+          checkpointCode: checkpointCode,
+          checkpointName: checkpointName,
+          rfidCardId: rfidCardId,
+          checkpointDesc: checkpointDesc,
+          sopIds: sopIds,
+          cpType: cpType
+        };
+
+        if (validateResult === true) {
+          $.ajax({
+            url: $.umbrella.basepath + "/patrol/checkpoint/addOrUpdateCheckpoint",
+            method: "post",
+            dataType: "json",
+            //data:$("#checkpointCreateForm").serialize(),
+            data: data,
+            success: function (result, status) {
+              if (result.success === true) {
+                alert(result.errorMsg, $.umbrella.alerticon.success);
+                $.umbrella.dialog.close();
+              } else {
+                alert(result.errorMsg, $.umbrella.alerticon.error);
+              }
+            }
+          });
+        }
+      },
+      reset: function () {
+        $("#checkpointCode").val("");
+        $("#checkpointName").val("");
+        $("#rfidCardId").val("");
+        $("#checkpointDesc").val("");
+      },
+      checkunique: function () {
+        var id = $("#id").val();
+        var checkpointCode = $("#checkpointCode").val();
+        if ($.trim(checkpointCode) == "") {
+          return "";
+        }
+        var checkMsg = "";
+        $.ajax({
+          url: $.umbrella.basepath + "/patrol/checkpoint/checkUniqueCheckpointCode",
+          method: "post",
+          async: false,
+          dataType: "json",
+          data: {
+            "id": id,
+            "checkpointCode": checkpointCode
+          },
+          success: function (result, status) {
+            if (result.success === false) {
+              checkMsg = result.errorMsg;
+            }
+          }
+        });
+        return checkMsg;
+      },
+      checkuniqueRfid: function () {
+        var id = $("#id").val();
+        var rfidCardId = $("#rfidCardId").val();
+        if ($.trim(rfidCardId) == "") {
+          return "";
+        }
+        var checkMsg = "";
+        $.ajax({
+          url: $.umbrella.basepath + "/patrol/checkpoint/checkUniqueRfid",
+          method: "post",
+          async: false,
+          dataType: "json",
+          data: {
+            "id": id,
+            "rfidCardId": rfidCardId
+          },
+          success: function (result, status) {
+            if (result.success === false) {
+              checkMsg = result.errorMsg;
+            }
+          }
+        });
+        return checkMsg;
+      },
+      setSopTableData: function (result) {
+        //console.log(result.data);
+        $("#sopTableEdit").fillListData(result.data, {
+          "rowCntPerPage": 10,
+          "saveRowData": true,
+          "tableDataBoundCallBack": function () {}
+        });
+        var id = $("#id").val();
+        var selectedSopIds = $("#selectedSopIds").val();
+        if (selectedSopIds != null && selectedSopIds != '') {
+          $("#sopTableEdit td :checkbox").each(function () {
+            var sopId = $(this).val();
+            if (selectedSopIds.indexOf(sopId) > -1) {
+              $(this).prop('checked', 'true');
+            }
+          });
+        }
+        /* else{
+        	$("#sopTableEdit td :checkbox").each(function() {
+        		//var sopId = $(this).val();
+        		var sopTypeId = $("#sopTypeId").val();
+        		if((id == null || id == '') && sopTypeId!=null && sopTypeId!=''){//新增：选择类型下的SOP全选
+        			$(this).prop('checked', 'true');
+        		}
+        	});
+        } */
+      }
+    };
+
+    $(function () {
+      //var soptypeid = $("#soptypeid").val();
+      $("#sopQueryListFormEdit").pager({
+        pageSize: 10,
+        url: $.umbrella.basepath + "/patrol/checkpoint/getSopListBysoptypeId",
+        target: "sopTableEdit",
+        searchbtn: "btnSopSearchEdit",
+        success: $.umbrella.editcheckpoint.setSopTableData,
+        paramFormId: "sopQueryListFormEdit",
+        searchOnLoad: true
+      });
+
+      //保存
+      $("#btnSave").click(function () {
+        $.umbrella.editcheckpoint.save();
+      });
+      //重置
+      $("#btnReset").click(function () {
+        $.umbrella.editcheckpoint.reset();
+      });
+
+      $("#searchKeySopType").keypress(function (event) {
+        if (event.keyCode == "13") {
+          $("#sopQueryListFormEdit").reloadTableData();
+        }
+      });
+
+      $("#checkAll").click(function () {
+        $("#sopTableEdit td :checkbox:visible").prop("checked", $(this).prop("checked"));
+      });
+
+      $("#sopTableEdit td :checkbox").click(function () {
+        var checkSopIds = $("#selectedSopIds").val();
+        var sopId = $(this).val();
+        var index = checkSopIds.indexOf(sopId);
+        if ($(this).prop('checked') == true) {
+          if (checkSopIds.indexOf(sopId) == -1) {
+            checkSopIds += ("," + sopId);
+          }
+        } else if ($(this).prop('checked') == false) {
+          if (checkSopIds.indexOf(sopId) > -1) {
+            checkSopIds = checkSopIds.substring(0, index - 1) + checkSopIds.substring(index + sopId.length,
+              checkSopIds.length);
+          }
+        }
+        $("#selectedSopIds").val(checkSopIds);
+
+        //var sop = $(this).parent("tr").find("td").attr("title");
+        /* var sourceHtml = $("#divSop").html();
+        var sopId = $(this).val();
+        var sopName = $(this).text();//"测试SOP";
+        if(sourceHtml.indexOf(sopId)==-1){
+        	var html = 	'<div class="" style="vertical-align:middle; text-align:center; width:100px;cursor:pointer;border:1px solid #F00; float: left;margin-left: 20px; margin-top: 10px;">' + 
+        					'</span>'+sopName+'<input type="hidden" id="'+sopId+'" name="sopId" /></span>' + 
+        				'</div>';
+        	$("#divSop").append(html);
+        } */
+      });
+
+      //获取所有SOP类型
+      getAllSOPType();
+
+      //点击checkbox获取类型、SOP
+      $(':checkbox[name="cbxSopType"]').click(function () {
+        //类型定义
+        initCheckType();
+
+        var strSopTypeIds = $("#sopTypeId").val();
+        //选中SOP
+        var url = $.umbrella.basepath + "/patrol/sop/getSopIdsByTypeId";
+        var data = {
+          strSopTypeIds: strSopTypeIds
+        };
+        $.ajax({
+          url: url,
+          data: data,
+          method: "post",
+          dataType: "json",
+          success: function (result) {
+            var selectedSopIds = result.data;
+            $("#selectedSopIds").val(selectedSopIds);
+            $("#sopQueryListFormEdit").reloadTableData();
+          }
+        });
+      });
+    });
+
+    function getAllSOPType() {
+      $.ajax({
+        url: $.umbrella.basepath + "/patrol/sop/getSopTypeByBusiness",
+        method: "post",
+        async: false,
+        data: {
+          noBusinessType: "DIC_TYPE_048_02"
+        },
+        dataType: "json",
+        success: function (result, status) {
+          if (result.success === true) {
+            var temp = result.data;
+            var html = '';
+            //html+='SOP类型<hr style="height:1px;border:none;border-top:1px dashed #0066CC;"  />';
+            for (var i = 0; i < temp.length; i++) {
+              var checkedSopTypeIds = "";
+              var strChecked = "";
+              if (checkedSopTypeIds.indexOf(temp[i].id) > -1) { //判断是否选中
+                strChecked = 'checked="checked"';
+              }
+              if (i && i % 4 == 0) {
+                html += '<input name="cbxSopType" type="checkbox" value="' + temp[i].id + '" ' + strChecked +
+                  ' />' + temp[i].soptypeName + '<br/>';
+              } else {
+                html += '<input name="cbxSopType" type="checkbox" value="' + temp[i].id + '" ' + strChecked +
+                  ' />' + temp[i].soptypeName + '&nbsp;&nbsp;';
+              }
+            }
+            $("#divSop").append(html);
+          }
+        }
+      });
+    }
+
+    function initCheckType() {
+      var checkSopTypeIds = "";
+      $(':checkbox[name="cbxSopType"]').each(function () {
+        //var fCheckSopIds = "";
+        if ($(this).prop('checked') == true) {
+          var checkTypeId = $(this).val();
+          checkSopTypeIds = checkSopTypeIds + checkTypeId + ",";
+        }
+      });
+      if (checkSopTypeIds.length > 0) {
+        checkSopTypeIds = checkSopTypeIds.substring(0, checkSopTypeIds.length - 1);
+      }
+      $("#sopTypeId").val(checkSopTypeIds);
+
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css"/>
+    <link href="assets/css/layers/dark-layer.css" class="theme-color" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/layers.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/layui.css" rel="stylesheet" type="text/css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/common.css"/> -->
+    <style type="text/css">
+        html,body{background-color: #fff;overflow-x: initial;}
+        label{display: inline-block;width: 80px;}
+        #address select{width: 80px;height: 30px;border: 1px solid #c0c0c0;border-radius: 5px;outline: none;}
+        #address select option{width: 80px;max-width: 100px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+        .acquire_btn{
+            display: inline-block;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px;
+            color: #999;
+            background-color: #f1f1f1;
+            padding: 0 10px;
+            border-radius: 10px;
+            cursor:not-allowed;
+            /*margin: 30px 0 0 15px;*/
+            /*cursor: pointer;*/
+            /*float: left;*/
+        }
+        .get_btn{
+            color: #fff;
+            cursor: pointer;
+            background-color: #30B19B;
+        }
+        .push{
+            width: 210px;
+            height:40px;
+            font-size:16px;
+            /*font-family: simkai;*/
+            color:#fff;
+            line-height:40px;
+            background: #30B19B;
+            border-radius:10px;
+            border:none ;
+            cursor:pointer;
+            margin: 30px 15px 0 0;
+        }
+        .zhsr{
+            /*border-radius: 2px;*/
+            border: 1px solid #c0c0c0;
+            border-radius: 2px;
+            outline: none;
+            /*font-family: simkai;*/
+        }
+        input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="padding-left: 20px; padding-top: 20px;overflow: hidden;">
+    <form id="addform" action="https://www.lcgxlm.com/HuaXtentCover/dept/add" method="POST" enctype="multipart/form-data"  target="rfFrame">
+        <label class="zh" for="deptName">部门名称：</label>
+        <input  class="zhsr" id="deptName" name="deptName" type="text" placeholder="请输入部门名称"/>
+        <span class="dept"></span> <br><br>
+        <div id="address">
+            <label class="zh">选择地点：</label>
+            <select class="select" id="province" name="province">
+                <option value="" >选择省份</option>
+            </select>
+            <select name="city" id="city">
+                <option value="" >选择城市</option>
+            </select>
+            <select name="areaName" id="town">
+                <option value="" >选择区域</option>
+            </select>
+            <span class="areaName"></span> <br><br>
+        </div>
+        <label class="zh" for="J-dz">详细地址：</label>
+        <input  class="zhsr" id="J-dz" type="text" name="addressDetail" placeholder="请输入街道/镇/路"/>
+        <span class="address"></span> <br><br>
+        <label class="zh" for="ip">ip地址：</label>
+        <input  class="zhsr" id="ip" name="ip" type="text" placeholder="如192.168.0.1"/>
+        <span class="lon"></span> <br><br>
+        <label class="zh" for="port">端口号：</label>
+        <input  class="zhsr" id="port" name="port" type="text" placeholder="如8080"/>
+        <span class="lat"></span> <br><br>
+        <label class="zh" for="info">唤醒间隔：</label>
+        <input  class="zhsr" id="info" type="number" name="wakeUpTime" placeholder="请输入唤醒间隔(小时)"/>
+        <span class="wakeUpTime"></span> <br><br>
+        <label class="zh">LOGO：</label>
+        <div class="inline form-inline" style="display: inline-block; position: relative;">
+            <input type="file" class="file" name="logo" style="display:none;" />
+            <img src="assets/images/ceshi.png" width="80px" height="80px" class="img-change logo">
+            <span style="position: absolute;bottom: 10px;left: 14px; color: #fff;">上传logo</span>
+        </div> <br><br>
+        <button class="push" id="submit">确认提交</button>
+    </form>
+    <iframe id="rfFrame" name="rfFrame" src="about:blank" style="display:none;"></iframe>
+</body>
+
+<script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.5&key=e1ae1375c2d91eca77430b6fb2a83950"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="assets/js/sweet-alert.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="layer-v3.1.0/layer/layer.js"></script>
+<script src="assets/js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/addres.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script>
+    $(function(){
+        // 封面图
+        $("body").on('click','.img-change',function () {
+            $(this).prev().click();
+        });
+        /*var filechange = function(event){*/
+        $("body").on('change','.file',function filechange(event) {
+            var files = event.target.files, file;
+            if (files && files.length > 0) {
+            // 获取目前上传的文件
+            file = files[0];// 文件大小校验的动作
+            if(file.size > 1024 * 1024 * 0.5) {
+                var oMsg = '图片大小不能超过 500KB!';
+                layer.msg('提示,' + oMsg,{
+                    shade: 0.3,
+                    shadeClose:true,
+                    time:2000,
+                    icon: 2
+                },
+                function(){
+                    return false;
+                });
+                // alert('图片大小不能超过 2MB!');
+                return false;
+            }
+            // 获取 window 的 URL 工具
+            var URL = window.URL || window.webkitURL;
+            // 通过 file 生成目标 url
+            var imgURL = URL.createObjectURL(file);
+            //console.log(imgURL);
+            //用attr将img的src属性改成获得的url
+            $(this).next().attr("src",imgURL);
+            // $(this).parent().parent().prev().find('.img-section').attr("src",imgURL);
+            $(this).next().next().hide();
+            // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+            // URL.revokeObjectURL(imgURL);
+            }
+        });
+
+        $("#address").selectAddress()
+
+        $("#town").focusout(function(){
+            var province = $("#province option:selected").html()
+            var city = $("#city option:selected").html()
+            var town = $("#town option:selected").html()
+            if(province!= '选择省份' && city!="选择城市" && town!='选择区域'){
+//                console.log('省份/直辖市：'+province+'\n城市:'+city+'\n区/县：'+town)
+            }
+        })
+
+        var name_Boolean=false;
+        var area_Boolean=false;
+        var address_Boolean=false;
+        var ip_Boolean=false;
+        var port_Boolean=false;
+        var time_Boolean=false;
+        
+        $('#deptName').blur(function(){
+            if ($("#deptName").val().length > 0){
+                $('.dept').html("✔").css("color","green");
+                name_Boolean = true;
+            }else {
+                $('.dept').html("×").css("color","red");
+                name_Boolean = false;
+            }
+        });
+
+        $('#town').blur(function(){
+            // if ((/[\.]/).test($("#J-NAME").val())){
+            if ($("#town").val().length > 0){
+                $('.areaName').html("✔").css("color","green");
+                area_Boolean = true;
+            }else {
+                $('.areaName').html("×").css("color","red");
+                area_Boolean = false;
+            }
+        });
+
+        $('#J-dz').blur(function(){
+            // if ((/[\.]/).test($("#J-NAME").val())){
+            if ($("#J-dz").val().length > 0){
+                $('.address').html("✔").css("color","green");
+                address_Boolean = true;
+            }else {
+                $('.address').html("×").css("color","red");
+                address_Boolean = false;
+            }
+        });
+
+        $('#ip').blur(function(){
+            if ($("#ip").val().length > 0){
+                $('.lon').html("✔").css("color","green");
+                ip_Boolean = true;
+            }else {
+                $('.lon').html("×").css("color","red");
+                ip_Boolean = false;
+            }
+        });
+        $('#port').blur(function(){
+            if ($("#port").val().length > 0){
+                $('.lat').html("✔").css("color","green");
+                port_Boolean = true;
+            }else {
+                $('.lat').html("×").css("color","red");
+                port_Boolean = false;
+            }
+        });
+        $('#info').blur(function(){
+            if ($("#info").val().length > 0){
+                $('.wakeUpTime').html("✔").css("color","green");
+                time_Boolean = true;
+            }else {
+                $('.wakeUpTime').html("×").css("color","red");
+                time_Boolean = false;
+            }
+        });
+
+        $('.push').on("click", function(){
+            // console.log($("#J-IMEI").val());
+            if( name_Boolean
+                &&area_Boolean
+                &&address_Boolean
+                &&ip_Boolean
+                &&port_Boolean
+                &&time_Boolean
+            ){
+                var province = $("#province").val();
+                // if(province=="上海"||province=="天津"||province=="北京"||province=="重庆"){
+                //     province=$("#province").val()+"市";
+                // }
+                // else{
+                //     province =$("#province").val()+"省";
+                // }
+                var oData = {
+                    // deptName: $("#deptName").val(),
+                    address: province + $("#city").val() + $("#town").val() + $("#J-dz").val(),
+                    // areaName: $("#town").val(),
+                    // ip: $("#ip").val(),
+                    // port: $("#port").val(),
+                    // wakeUpTime: $("#info").val()
+                }
+                __addCover(oData)
+            }
+            else{
+                var oMsg = '请填写所有信息';
+                layer.msg('提示,' + oMsg,{
+                    shade: 0.3,
+                    shadeClose:true,
+                    time:2000,
+                    icon: 2
+                },
+                function(){
+                    location.reload();
+                });
+            }
+        });
+
+        function __addCover(data){
+            swal({
+                title: "是否添加？",
+                text: "是否需要添加该部门？",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonColor:"#ccc",
+                cancelButtonText: "取消",
+                confirmButtonColor: "#3897fd",
+                confirmButtonText: "是的",
+                closeOnConfirm: true
+            },
+
+            function(isConfirm){
+                if(isConfirm){
+                    var oData = data;
+                    var options  = {    
+                        url: common.oUrl() + '/HuaXtentCover/dept/add',   //同action 
+                        type:'post',
+                        beforeSend:function(xhr){//请求之前
+                            // $('body').mLoading("show");
+                            xhr.setRequestHeader('token', $.cookie('coverToken'));
+                        },
+                        data: oData,
+                        success:function(data){  
+                            if(data.success){
+                                // $('body').mLoading("hide");
+                                if(data.code == 500){
+                                    window.location.href = '500.html';
+                                    return
+                                }
+                                var oMsg = data.message || '添加成功!';
+                                layer.msg('提示,' + oMsg,{
+                                    shade: 0.3,
+                                    shadeClose:true,
+                                    time:2000,
+                                    icon: 1
+                                },
+                                function(){
+                                    var index = parent.layer.getFrameIndex(window.name);
+                                    parent.layer.close(index);
+                                    window.location.reload();
+                                });
+                            }else{
+                                if(data.code == '100416'){
+                                    var oMsg = '该部门已经被注册';
+                                    layer.msg('提示,' + oMsg,{
+                                        shade: 0.3,
+                                        shadeClose:true,
+                                        time:2000,
+                                        icon: 2
+                                    });
+                                }else if(data.code == 2001){
+                                    __againLogin(data.message);
+                                }else{
+                                    var oMsg = data.message;
+                                    layer.msg('提示,' + oMsg,{
+                                        shade: 0.3,
+                                        shadeClose:true,
+                                        time:2000,
+                                        icon: 2
+                                    });
+                                }
+                            }
+                            
+            　　　　　　  console.log(data);
+                        }
+                    };    
+                   $("#addform").ajaxSubmit(options);
+
+                }
+                
+
+
+
+
+                // common.ajax('/HuaXtentCover/dept/add', 'POST', oData, function(res){
+                //     if (res.success) {
+                //         var oMsg = res.message || '添加成功';
+                //         layer.msg('提示,' + oMsg,{
+                //             shade: 0.3,
+                //             shadeClose:true,
+                //             time:2000,
+                //             icon: 1
+                //         },
+                //         function(){
+                //             var index = parent.layer.getFrameIndex(window.name);
+                //             parent.layer.close(index);
+                //             window.location.reload();
+                //         });
+                        
+                //     }else{
+                //         if(res.code == '100416'){
+                //             var oMsg = '该部门已经被注册';
+                //             layer.msg('提示,' + oMsg,{
+                //                 shade: 0.3,
+                //                 shadeClose:true,
+                //                 time:2000,
+                //                 icon: 2
+                //             },
+                //             function(){
+                //             });
+                //         }else if(res.code == 2001){
+                //             __againLogin(res.message);
+                //         }else{
+                //             var oMsg = res.message;
+                //             layer.msg('提示,' + oMsg,{
+                //                 shade: 0.3,
+                //                 shadeClose:true,
+                //                 time:2000,
+                //                 icon: 2
+                //             },
+                //             function(){
+
+                //             });
+                //         }
+                //     }
+                // });
+            });
+        }
+        function __againLogin(data){
+            var oMsg = data || '请重新登录';
+            layer.msg('提示,' + oMsg,{
+                shade: 0.3,
+                shadeClose:true,
+                time:2000,
+                icon: 2
+            },
+            function(){
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                window.location.href = 'login.html';
+            });
+        }
+
+    });
+
+</script>
+</html>

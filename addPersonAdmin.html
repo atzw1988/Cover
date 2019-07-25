@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css"/>
+    <link href="assets/css/layers.min.css" rel="stylesheet" type="text/css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/common.css"/> -->
+    <style type="text/css">
+    	html,body{background-color: #fff;overflow-x: initial;}
+        #address select{width: 80px;height: 30px;border: 1px solid #c0c0c0;border-radius: 5px;outline: none;}
+        #address select option{width: 80px;max-width: 100px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+        label{
+            display: inline-block;
+            width: 80px;
+        }
+		.acquire_btn{
+            display: inline-block;
+			height: 30px;
+			font-size: 14px;
+			line-height: 30px;
+			color: #999;
+			background-color: #f1f1f1;
+			padding: 0 10px;
+			border-radius: 10px;
+            cursor:not-allowed;
+			/*margin: 30px 0 0 15px;*/
+			/*cursor: pointer;*/
+			/*float: left;*/
+		}
+        .get_btn{
+            color: #fff;
+            cursor: pointer;
+            background-color: #30B19B;
+        }
+		#push{
+			width: 210px;
+			height:40px;
+			font-size:16px;
+			/*font-family: simkai;*/
+			color:#fff;
+			line-height:40px;
+			background: #30B19B;
+    		border-radius:10px;
+    		border:none ;
+    		cursor:pointer;
+    		margin: 30px 15px 0 0;
+		}
+		.zhsr{
+			/*border-radius: 2px;*/
+			border: 1px solid #c0c0c0;
+			border-radius: 2px;
+			outline: none;
+			/*font-family: simkai;*/
+		}
+    </style>
+</head>
+<body style="padding-left: 20px; padding-top: 20px;overflow: hidden;">
+<label class="zh" for="username">用户名：</label>
+<input  class="zhsr" id="username" type="text" placeholder="请输入用户名"/>
+<span class="c_username"></span> <br><br>
+<label class="zh" for="password">密码：</label>
+<input  class="zhsr" id="password" type="text" placeholder="请输入密码" maxlength="20" />
+<span class="c_password"></span> <br><br>
+<label class="zh" for="phone">电话号码：</label>
+<input class="zhsr" id="phone" type="text" maxlength="11" placeholder="请输入电话号码"/>
+<span class="c_phone"></span> <br><br>
+<label class="zh" for="deptId">所属部门：</label>
+<select class="zhsr" name="state" id="deptId"></select>
+<span class="c_deptId"></span> <br><br>
+
+<button id="push">确认提交</button>
+</body>
+
+<script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=rUvDHOfS2tDTqKFEetiGUrbsCCGGlYIw&s=1"></script> -->
+<script src="https://webapi.amap.com/maps?v=1.4.5&key=e1ae1375c2d91eca77430b6fb2a83950"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="assets/js/sweet-alert.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="layer-v3.1.0/layer/layer.js"></script>
+<script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/addres.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script type="text/template" id="modelOption">
+    <% var map = obj.data %>
+    <option value="">选择部门</option>
+    <% for(var i=0;i<map.length;i++){ %>
+        <% var item = map[i] %>
+        <option value="<%=item.id%>"><%=item.deptName%></option>
+    <% } %>
+</script>
+<script>
+    $(function(){
+    	common.ajax('/HuaXtentCover/dept/select', 'GET', {}, function(res){
+            if(res.success){
+                if(res.data.length > 0){
+                    var detail=res;
+                    var modelOption=$("#modelOption").html();
+                    var template=_.template(modelOption)(detail);
+                    $("#deptId").html(template);
+                }else{
+                    var oMsg = res.message || '请先添加部门！';
+                    layer.msg('提示,' + oMsg,{
+                        shade: 0.3,
+                        shadeClose:true,
+                        time:2000,
+                        icon: 1
+                    },
+                    function(){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.close(index);
+                        window.location.reload();
+                    });
+                }
+            }else{
+                var oMsg = res.message || '请求出错！';
+                layer.msg('提示,' + oMsg,{
+                    shade: 0.3,
+                    shadeClose:true,
+                    time:2000,
+                    icon: 1
+                },
+                function(){
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+                    window.location.reload();
+                });
+            }
+        })
+        
+        var username_Boolean=false;
+        var password_Boolean=false;
+        var phone_Boolean=false;
+        var deptId_Boolean=false;
+        $('#username').blur(function(){
+            if ($("#username").val().length > 0){
+                $('.c_username').html("✔").css("color","green");
+                username_Boolean = true;
+            }else {
+                $('.c_username').html("×").css("color","red");
+                username_Boolean = false;
+            }
+        });
+        $('#password').blur(function(){
+            if ($("#password").val().length > 5){
+                $('.c_password').html("✔").css("color","green");
+                password_Boolean = true;
+            }else {
+                $('.c_password').html("×").css("color","red");
+                password_Boolean = false;
+            }
+        });
+        $('#phone').blur(function(){
+            if ($("#phone").val().length > 0){
+                $('.c_phone').html("✔").css("color","green");
+                phone_Boolean = true;
+            }else {
+                $('.c_phone').html("×").css("color","red");
+                phone_Boolean = false;
+            }
+        });
+        $('#deptId').blur(function(){
+            if ($("#deptId").val().length > 0){
+                $('.c_deptId').html("✔").css("color","green");
+                deptId_Boolean = true;
+            }else {
+                $('.c_deptId').html("×").css("color","red");
+                deptId_Boolean = false;
+            }
+        });
+
+        $('#push').on("click", function(){
+            // console.log($("#J-IMEI").val());
+            if( username_Boolean
+                &&password_Boolean
+                &&phone_Boolean
+                &&deptId_Boolean
+            ){
+                var oData = {
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    phone: $("#phone").val(),
+                    deptId: $("#deptId").val()
+                }
+                __addCover(oData)
+            }
+            else{
+               var oMsg = '请填写所有信息';
+                layer.msg('提示,' + oMsg,{
+                    shade: 0.3,
+                    shadeClose:true,
+                    time:2000,
+                    icon: 2
+                },
+                function(){
+                    location.reload();
+                });
+            }
+        });
+
+        function __addCover(data){
+            swal({
+                title: "是否添加？",
+                text: "是否需要添加该帐号？",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonColor:"#ccc",
+                cancelButtonText: "取消",
+                confirmButtonColor: "#3897fd",
+                confirmButtonText: "是的",
+                closeOnConfirm: true
+            },
+
+            function(){
+                var oData = data;
+                common.ajax('/HuaXtentCover/admin/users', 'POST', oData, function(res){
+                    if (res.success) {
+                        var oMsg = res.message || '添加成功';
+                        layer.msg('提示,' + oMsg,{
+                            shade: 0.3,
+                            shadeClose:true,
+                            time:2000,
+                            icon: 1
+                        },
+                        function(){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                            window.location.reload();
+                        });
+                        
+                    }else{
+                        if(res.code == '100416'){
+                            var oMsg = '该管理员已经被注册';
+                            layer.msg('提示,' + oMsg,{
+                                shade: 0.3,
+                                shadeClose:true,
+                                time:2000,
+                                icon: 2
+                            },
+                            function(){
+                            });
+                        }else if(res.code == 2001){
+                            __againLogin(res.message);
+                        }else{
+                            var oMsg = res.message;
+                            layer.msg('提示,' + oMsg,{
+                                shade: 0.3,
+                                shadeClose:true,
+                                time:2000,
+                                icon: 2
+                            },
+                            function(){
+
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        function __againLogin(data){
+            var oMsg = data || '请重新登录';
+            layer.msg('提示,' + oMsg,{
+                shade: 0.3,
+                shadeClose:true,
+                time:2000,
+                icon: 2
+            },
+            function(){
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                window.location.href = 'login.html';
+            });
+        }
+
+    });
+
+</script>
+</html>

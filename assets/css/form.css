@@ -1,0 +1,95 @@
+.form {
+	
+}
+.form .form-content {
+	background: #EAEAEA;
+	min-height:80%;
+}
+.form .form-content div.panel {
+	width:100%;
+	float: left;
+	padding:1% 2%;
+}
+.form .form-content div.panel div.content-panel {
+	width:100%;
+	border-radius:10px;
+	box-shadow:0 0px 1px rgba(0, 0, 0, .5);
+	background:#FFF;
+	padding:20px;
+}
+.form .form-content div.panel div.content-panel .table{
+	display: table;
+	width:100%;
+	border-collapse: collapse;/*为表格设置合并边框模型：*/
+	margin-left:10%;
+	margin: 0;
+	padding: 0;
+	margin-bottom:12px;
+}
+.form .form-content div.panel div.content-panel .table li{
+	display: table-row;
+	height: 35px;
+	border-bottom:1px solid #ccc;
+}
+.form .form-content div.panel div.content-panel .table li div{
+	vertical-align: middle;
+	display: table-cell;
+	/*border-left:1px solid #ccc;*/
+}
+.form .form-content div.panel div.content-panel .table li .title {
+	width:15%;
+}
+.form .form-content div.panel div.content-panel .table li .value {
+	width:85%;
+}
+.form .form-content div.panel div.content-panel .table li .value input[type='text'],
+.form .form-content div.panel div.content-panel .table li .value input[type='password'],
+.form .form-content div.panel div.content-panel .table li .value select,
+.form .form-content div.panel div.content-panel .table li .value textarea {
+	width:97%;
+}
+.form .form-content div.panel div.content-panel .table li input[type='text'],
+.form .form-content div.panel div.content-panel .table li input[type='password'],
+.form .form-content div.panel div.content-panel .table li select,
+.form .form-content div.panel div.content-panel .table li textarea{
+	border: 0;
+	background-color: rgba(0,0,0,0);
+	height: 35px;
+	width: 90%;
+}
+.form .form-content div.panel div.button-panel {
+	width:100%;
+	height:55px;
+	margin-top:10px;
+	border-radius:10px;
+	box-shadow:0 0px 1px rgba(0, 0, 0, .5);
+	background:#FFF;
+	padding:5px 50px;
+}
+.form .form-content div.panel div.button-panel .form-button {
+	cursor:pointer;
+	float: right;
+	height:40px;
+	font-size:12px;
+	color: #FFF;
+	background: rgba(0, 0, 0,.4);
+	padding:12px 0;
+	border-radius:50px;
+	text-align: center;
+}
+.form .form-content div.panel div.button-panel .form-button:hover {
+	background-color:rgba(0,0,0,.45) !important;
+}
+.form .form-content div.panel div.button-panel .reset {
+	width:30%;
+}
+.form .form-content div.panel div.button-panel .submit {
+	margin-right:10px;
+	width:55%;
+}
+.pop div.form-content div.panel div.content-panel .table li div.title {
+	width:25%;
+}
+.pop div.form-content div.panel div.content-panel .table li div.value {
+	width:75%;
+}

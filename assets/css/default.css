@@ -1,0 +1,290 @@
+/*!
+ * =====================================================
+ * UmbrellaUI v3.0.1
+ * =====================================================
+ */
+
+/* CSS Document */ 
+body { font:10px/1.5 "微软雅黑",Arial,Tahoma, Helvetica,\5b8b\4f53, sans-serif; }
+html,body,div,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,object,code,em,span,var,legend,button,input,textarea,th,td,a,img,header,footer,nav,aside,audio,datalist,section { margin:0;padding:0;border:0;outline:0; }/*清除内外边距*/
+h1,h2,h3,h4,h5,h6 { font-weight:normal;font-size:100%; }/*设置默认字体*/
+:focus { outline:0; }ul,ol,ul li,ol li { list-style: none; }/*重置列表*/
+address,caption,cite,em,code,dfn,th,var { font-style:normal;font-weight:normal; }
+form label { cursor:pointer; }
+input,button,select,textarea { font-family:inherit;font-size:100%;outline:none; }
+textarea { resize:none }
+input { vertical-align:middle; }
+img { border:0; }/*重置图片元素*/
+table { border-collapse:collapse;border-spacing: 0;font-size:10px}/*重置表格*/
+.l { float:left; }.r { float:right; }
+button,input[type="reset"],input[type="button"],input[type="submit"] { line-height:normal !important; }
+a { text-decoration:none;}a:hover { text-decoration:underline; }
+
+
+
+
+/*---------全局定义--------------*/
+body, html {
+	font-family:"微软雅黑",Arial;
+	font-size: 10px;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	}
+
+/*--------清除初始布局------------*/
+a {
+	color:#3B3B3B; /*链接样式*/
+	text-decoration: none;
+}
+a:hover {
+	color: #204D74; /*悬停链接样式*/
+}
+button {
+	display: inline-block; /*布局格式化*/
+	outline: 0!important;  /*去除边线*/
+}
+li {
+	list-style:none; /* 将默认的列表符号去掉 */
+	padding:0; /* 将默认的内边距去掉 */
+	margin:0; /* 将默认的外边距去掉 */
+}
+input,select{outline:none;}
+textarea {
+	resize: none;
+}
+input:read-only, textarea:read-only {
+	cursor:default;
+}
+input::-webkit-input-placeholder {
+	color: #aaa !important; /* WebKit browsers*/
+}
+input:-moz-placeholder {
+	color: #aaa !important; /* Mozilla Firefox 4 to 18 */
+}
+input::-moz-placeholder {
+	color: #aaa !important; /* Mozilla Firefox 19+ */
+}
+input:-ms-input-placeholder {
+	color: #aaa !important; /* Internet Explorer 10+ */
+}
+
+textarea::-webkit-input-placeholder {
+	color: #aaa !important; /* WebKit browsers*/
+}
+textarea:-moz-placeholder {
+	color: #aaa !important; /* Mozilla Firefox 4 to 18 */
+}
+textarea::-moz-placeholder {
+	color: #aaa !important; /* Mozilla Firefox 19+ */
+}
+textarea:-ms-input-placeholder {
+	color: #aaa !important; /* Internet Explorer 10+ */
+}
+
+/* -------Reset -------*/
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* -------Clearfix hack by Nicolas Gallagher------- */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/*----------全局滚动条------------*/
+::-webkit-scrollbar{
+   width:7px;
+   background:white;/* 整个滚条背景 */
+} 
+::-webkit-scrollbar-thumb{
+   -webkit-border-radius:5px;
+   border-radius:5px;
+   background:rgba(59,78,113,.7); /* 滚条内嵌颜色 */
+} 
+::-webkit-scrollbar-button {
+    background-color:#EAEAEA;/* 两边端按钮颜色 */
+}
+.scrollbar{
+	overflow: auto;
+}
+/*-------------------------------*/
+/*     全局表单元素 styles        */
+/*-------------------------------*/
+/*input[type='radio']:before{
+    content: '\e411';
+}
+input[type='radio']:checked:before{
+    content: '\e441';
+}*/
+input[type='checkbox'],input[type='radio']{
+	-webkit-appearance: none;
+	padding: 0;
+	color: #4173b9;
+}
+input[type='checkbox']:focus,input[type='radio']:focus{
+    outline: medium;
+}
+input[type='checkbox']:before,input[type='radio']:before {
+	display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: '\f1db';
+    font-size: 1.8em;
+}
+input[type='checkbox']:checked:before{
+    content: '\f058';
+}
+input[type='radio']:checked:before{
+    content: '\f192';
+}
+
+
+
+
+
+/*---------通用字号------------*/
+/*---------通用字号------------*/
+@media only screen and (min-width: 1920px) {
+	body{
+		font-size: 14px;
+	}
+	.table-view li{
+		border-bottom: 1px solid #cccccc;
+		height:80px;
+		padding: 20px;
+	}
+	.table-view li input[type='text'],.table-view li input[type='password'],.table-view li select,.table-view li option{
+		height:45px;
+		font-size: 14px;
+		border: 0;
+	}
+}
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+	body{
+		font-size: 12px;
+	}
+	.table-view li{
+		border-bottom: 1px solid #cccccc;
+		height:70px;
+		padding: 20px;
+	}
+	.table-view li input[type='text'],.table-view li input[type='password'],.table-view li select,.table-view li option{
+		height:40px;
+		font-size: 12px;
+		border: 0;
+	}
+}
+@media only screen and (max-width: 1440px) {
+	body{
+		font-size: 10px;
+	}
+	.table-view li{
+		border-bottom: 1px solid #cccccc;
+		height:45px;
+		padding: 10px;
+	}
+	.table-view li input[type='text'],.table-view li input[type='password'],.table-view li select,.table-view li option{
+		height:30px;
+		font-size: 10px;
+		border: 0;
+	}
+}
+
+
+.table{
+	display: table;
+  	width:100%;
+	border-collapse: collapse;/*为表格设置合并边框模型：*/
+	margin-left:10%;
+  	margin: 0;
+  	padding: 0;
+}
+.table li{
+	display: table-row;
+}
+.table li div{
+	vertical-align: middle;
+	display: table-cell;
+}
+@media only screen and (min-width: 1920px) {
+	body{
+		font-size: 14px;
+		}
+	.table li{
+		height: 60px;
+	}
+	.table li input[type='text'],.table li input[type='password'],.table li select,.table li option{
+		border: 0;
+		background-color: rgba(0,0,0,0);
+		height: 50px;
+		width: 90%;
+		border-bottom:1px solid #cccccc;	
+		font-size:14px;
+	}
+}
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+	body{
+		font-size: 12px;
+		}
+	.table li{
+		height: 50px;
+	}
+	.table li input[type='text'],.table li input[type='password'],.table li select,.table li option{
+		border: 0;
+		background-color: rgba(0,0,0,0);
+		height: 50px;
+		width: 90%;
+		border-bottom:1px solid #cccccc;	
+		font-size:12px;
+	}
+}
+@media only screen and (max-width: 1440px) {
+	body{
+		font-size: 10px;
+	}
+	.table li{
+		height: 40px;
+	}
+	.table li input[type='text'],.table li input[type='password'],.table li select,.table li option{
+		border: 0;
+		background-color: rgba(0,0,0,0);
+		height: 35px;
+		width: 90%;
+		border-bottom:1px solid #cccccc;	
+		font-size:10px;
+	}
+
+}
+
+/* Loading */
+.loading-indicator {
+	height: 80px;
+	width: 80px;
+	background: url( '../image/loading.gif' );
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.loading-indicator-bars {
+	background-image: url('../image/loading-bars.gif');
+	width: 150px;
+}
+
+.loading-indicator-overlay {
+	background-color: #000000;
+	opacity: 0.2;
+	filter: alpha(opacity = 20);
+}

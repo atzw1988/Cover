@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css"/>
+    <link href="assets/css/layers/dark-layer.css" class="theme-color" rel="stylesheet" type="text/css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/common.css"/> -->
+    <style type="text/css">
+    	html,body{background-color: #fff;overflow-x: initial;}
+        #address select{width: 80px;height: 30px;border: 1px solid #c0c0c0;border-radius: 5px;outline: none;}
+        #address select option{width: 80px;max-width: 100px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+		.acquire_btn{
+            display: inline-block;
+			height: 30px;
+			font-size: 14px;
+			line-height: 30px;
+			color: #999;
+			background-color: #f1f1f1;
+			padding: 0 10px;
+			border-radius: 10px;
+            cursor:not-allowed;
+			/*margin: 30px 0 0 15px;*/
+			/*cursor: pointer;*/
+			/*float: left;*/
+		}
+        .get_btn{
+            color: #fff;
+            cursor: pointer;
+            background-color: #30B19B;
+        }
+		#push{
+			width: 210px;
+			height:40px;
+			font-size:16px;
+			/*font-family: simkai;*/
+			color:#fff;
+			line-height:40px;
+			background: #30B19B;
+    		border-radius:10px;
+    		border:none ;
+    		cursor:pointer;
+    		margin: 30px 15px 0 0;
+		}
+		.zhsr{
+			/*border-radius: 2px;*/
+			border: 1px solid #c0c0c0;
+			border-radius: 2px;
+			outline: none;
+			/*font-family: simkai;*/
+		}
+    </style>
+</head>
+<body style="padding-left: 20px; padding-top: 20px;overflow: hidden;">
+<label class="zh" for="J-IMEI">设备IMEI：</label>
+<input  class="zhsr" id="J-IMEI" type="number" placeholder="请输入设备IMEI号"/>
+<span class="imei"></span> <br><br>
+<label class="zh" for="J-NAME">井盖名称：</label>
+<input  class="zhsr" id="J-NAME" type="text" placeholder="请输入井盖名称"/>
+<span class="c_name"></span> <br><br>
+<div id="address">
+    <label class="zh">选择地点：</label>
+    <select class="select" id="province" name="province">
+        <option value="" >选择省份</option>
+    </select>
+    <select name="city" id="city">
+        <option value="" >选择城市</option>
+    </select>
+
+    <select name="town" id="town">
+        <option value="" >选择区域</option>
+    </select>
+</div><br>
+<label class="zh" for="J-dz">详细地址：</label>
+<input  class="zhsr" id="J-dz" placeholder="请输入街道/镇/路"/>
+<div class="acquire_btn">获取经纬度</div>
+<br><br>
+<label class="zh" for="J-JD">经度位置：</label>
+<input  class="zhsr" id="J-JD" type="number" placeholder="如116.375526"/>
+<span class="lon"></span> <br><br>
+<label class="zh" for="J-WD">纬度位置：</label>
+<input  class="zhsr" id="J-WD" type="number" placeholder="如39.88836"/>
+<span class="lat"></span> <br><br>
+<label class="zh" for="info">备注信息：</label>
+<input  class="zhsr" id="info" placeholder="请输入备注信息"/><br>
+
+<button id="push">确认提交</button>
+</body>
+
+<script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=rUvDHOfS2tDTqKFEetiGUrbsCCGGlYIw&s=1"></script> -->
+<script src="https://webapi.amap.com/maps?v=1.4.5&key=e1ae1375c2d91eca77430b6fb2a83950"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="assets/js/sweet-alert.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="layer-v3.1.0/layer/layer.js"></script>
+<script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/addres.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script>
+    $(function(){
+    	
+        var map = new AMap.Map('container');
+        AMap.service('AMap.Geocoder',function(){//回调函数
+            //实例化Geocoder
+            geocoder = new AMap.Geocoder({
+                // city: "010"//城市，默认：“全国”
+            });
+            //TODO: 使用geocoder 对象完成相关功能
+        })
+		function searchByStationName(address) {
+			var oProvince = $('#province').val();
+			var oCity = $('#city').val();
+			var oTown = $('#town').val();
+			var keyword = oProvince + oCity + oTown + address;
+            geocoder.getLocation(keyword, function(status, result) {
+                if (status === 'complete' && result.info === 'OK') {
+                    //TODO:获得了有效经纬度，可以做一些展示工作
+                    //比如在获得的经纬度上打上一个Marker
+                    console.log(result);
+                    var poi = result.geocodes[0];
+                    if(poi.location.lng){
+                        $('#J-JD').val(poi.location.lng);
+                        $('#J-WD').val(poi.location.lat);
+                        lat_Boolean = true;
+                        $('.lat').html("✔").css("color","green");
+                        lon_Boolean = true;
+                        $('.lon').html("✔").css("color","green");
+                    }else{
+                        lat_Boolean = false;
+                        $('.lat').html("×").css("color","red");
+                        lon_Boolean = false;
+                        $('.lon').html("×").css("color","red");
+                    }
+                }else{
+                    //获取经纬度失败
+                    swal("获取失败", '请输入正确的地址', "error");
+                }
+            }); 
+		}
+
+        $('#town').blur(function(){
+            if ($("#J-dz").val().length > 0 && $("#town").val()!=""){
+                $('.acquire_btn').addClass('get_btn')
+            }else {
+                $('.acquire_btn').removeClass('get_btn')
+            }
+        });
+
+		$('#J-dz').blur(function(){
+            if ($("#J-dz").val().length > 0 && $("#town").val()!=""){
+                $('.acquire_btn').addClass('get_btn')
+            }else {
+                $('.acquire_btn').removeClass('get_btn')
+            }
+        });
+
+		$('body').on('click','.get_btn',function(){
+			var address = $('#J-dz').val();
+			searchByStationName(address);
+		});
+
+        $("#address").selectAddress()
+        $("#town").focusout(function(){
+            var province = $("#province option:selected").html()
+            var city = $("#city option:selected").html()
+            var town = $("#town option:selected").html()
+            if(province!= '选择省份' && city!="选择城市" && town!='选择区域'){
+//                console.log('省份/直辖市：'+province+'\n城市:'+city+'\n区/县：'+town)
+            }
+        })
+        var imei_Boolean=false;
+        var lon_Boolean=false;
+        var lat_Boolean=false;
+        var name_Boolean=false;
+        $('#J-IMEI').blur(function(){
+            if ((/[\d.]/).test($("#J-IMEI").val())){
+                $('.imei').html("✔").css("color","green");
+                imei_Boolean = true;
+            }else {
+                $('.imei').html("×").css("color","red");
+                imei_Boolean = false;
+            }
+        });
+        $('#J-NAME').blur(function(){
+            // if ((/[\.]/).test($("#J-NAME").val())){
+            if ($("#J-NAME").val().length > 0){
+                $('.c_name').html("✔").css("color","green");
+                name_Boolean = true;
+            }else {
+                $('.c_name').html("×").css("color","red");
+                name_Boolean = false;
+            }
+        });
+        $('#J-JD').blur(function(){
+            if ((/^[\-\+]?(0?\d{1,2}\.\d{1,5}|1[0-7]?\d{1}\.\d{1,6}|180\.0{1,5})$/).test($("#J-JD").val())){
+                $('.lon').html("✔").css("color","green");
+                lon_Boolean = true;
+            }else {
+                $('.lon').html("×").css("color","red");
+                lon_Boolean = false;
+            }
+        });
+        $('#J-WD').blur(function(){
+            if ((/^[\-\+]?([0-8]?\d{1}\.\d{1,6}|90\.0{1,6})$/).test($("#J-WD").val())){
+                $('.lat').html("✔").css("color","green");
+                lat_Boolean = true;
+            }else {
+                $('.lat').html("×").css("color","red");
+                lat_Boolean = false;
+            }
+        });
+        $('#push').on("click", function(){
+            // console.log($("#J-IMEI").val());
+            if(name_Boolean&&imei_Boolean&&lon_Boolean&&lat_Boolean&&$("#province").val()!=""&&$("#city").val()!=""&&$("#town").val()!=""&&$("#J-dz").val()!=""){
+                var province = $("#province").val();
+                if(province=="上海"||province=="天津"||province=="北京"||province=="重庆"){
+                    province=$("#province").val()+"市";
+                }
+                else{
+                    province =$("#province").val()+"省";
+                }
+                var oData = {
+                    imei: $("#J-IMEI").val(),
+                    deviceName: $("#J-NAME").val(),
+                    areaName: $("#town").val(),
+                    address: province + $("#city").val() + $("#town").val() + $("#J-dz").val(),
+                    latitude: $("#J-WD").val(),
+                    longitude: $("#J-JD").val(),
+                    noteInfo: $("#info").val()
+                }
+                __addCover(oData)
+            }
+            else{
+                var oMsg = '请填写正确的设备信息';
+                layer.msg('提示,' + oMsg,{
+                    shade: 0.3,
+                    shadeClose:true,
+                    time:2000,
+                    icon: 2
+                },
+                function(){
+                    location.reload();
+                });
+            }
+        });
+
+        function __addCover(data){
+            swal({
+                title: "是否添加？",
+                text: "是否需要添加该设备？",
+                type: "warning",
+                showCancelButton: true,
+                cancelButtonColor:"#ccc",
+                cancelButtonText: "取消",
+                confirmButtonColor: "#3897fd",
+                confirmButtonText: "是的",
+                closeOnConfirm: true
+            },
+
+            function(){
+                var oData = data;
+                common.ajax('/HuaXtentCover/devMng/register', 'POST', oData, function(res){
+                    if (res.success) {
+                         var oMsg = res.message || '添加成功';
+                        layer.msg('提示,' + oMsg,{
+                            shade: 0.3,
+                            shadeClose:true,
+                            time:2000,
+                            icon: 1
+                        },
+                        function(){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            parent.layer.close(index);
+                            window.location.reload();
+                        });
+                        
+                    }else{
+                        if(res.code == '100416'){
+                            var oMsg = '该设备已经被注册';
+                            layer.msg('提示,' + oMsg,{
+                                shade: 0.3,
+                                shadeClose:true,
+                                time:2000,
+                                icon: 2
+                            },
+                            function(){
+                            });
+                        }else if(res.code == 2001){
+                            __againLogin(res.message);
+                        }else{
+                            var oMsg = res.message;
+                            layer.msg('提示,' + oMsg,{
+                                shade: 0.3,
+                                shadeClose:true,
+                                time:2000,
+                                icon: 2
+                            },
+                            function(){
+
+                            });
+                        }
+                    }
+                });
+            });
+        }
+        function __againLogin(data){
+            var oMsg = data || '请重新登录';
+            layer.msg('提示,' + oMsg,{
+                shade: 0.3,
+                shadeClose:true,
+                time:2000,
+                icon: 2
+            },
+            function(){
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                window.location.href = 'login.html';
+            });
+        }
+
+    });
+
+</script>
+</html>

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Title -->
+  <title>井盖平台</title>
+
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta charset="UTF-8">
+  <meta name="description" content="Admin Dashboard Template" />
+  <meta name="keywords" content="admin,dashboard" />
+  <meta name="author" content="Icon" />
+  <base href="/">
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  <!-- Styles -->
+  <link href="assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+  <link href="assets/plugins/uniform/css/default.css" rel="stylesheet" />
+  <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css" />
+
+  <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+  <!-- Theme Styles -->
+  <link href="assets/css/layers.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/layers/dark-layer.css" class="theme-color" rel="stylesheet" type="text/css" />
+  <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/layui.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/pager.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css" />
+  <link rel="stylesheet" href="assets/css/jquery.mloading.css">
+  <!-- <script src="assets/js/velocity.ui.js" type="text/javascript" charset="utf-8"></script> -->
+
+  <link rel="stylesheet" href="assets/css/clndr.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/weather.css" />
+
+  <!-- <link href="assets/css/layer.css" rel="stylesheet" type="text/css"> -->
+  <!-- <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css"> -->
+  <link href="assets/css/suniconfont.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/flatpickr.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/default.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/table.css" rel="stylesheet" type="text/css">
+  <link href="assets/css/form.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/layui.all.js"></script> -->
+  <script type="text/javascript" src="assets/js/jquery.showLoading.js"></script>
+  <script type="text/javascript" src="assets/js/ajaxfileupload.js"></script>
+  <script type="text/javascript" src="assets/js/jQuery.print.js"></script>
+  <script type="text/javascript" src="assets/js/kalendae.standalone.js"></script>
+  <script type="text/javascript" src="assets/js/json2.js"></script>
+  <script type="text/javascript" src="assets/js/flatpickr.js"></script>
+  <script type="text/javascript" src="assets/js/flatpickr.l10n.zh.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/um.js"></script> -->
+
+  <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=rUvDHOfS2tDTqKFEetiGUrbsCCGGlYIw&s=1"> -->
+  <!-- </script> -->
+  <!-- <script src="assets/plugins/3d-bold-navigation/js/modernizr.js"></script> -->
+  <!-- <script src="assets/plugins/offcanvasmenueffects/js/snap.svg-min.js"></script> -->
+
+
+</head>
+
+<body class="compact-menu pace-done page-header-fixed page-sidebar-fixed">
+  <div class="overlay"></div>
+  <main class="page-content content-wrap" style="background-color: #f5f5f5;">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="sidebar-pusher">
+          <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
+            <i class="icon-arrow-right"></i>
+          </a>
+        </div>
+        <div class="logo-box">
+          <img id="logo-img" width="40px" height="40px" src="assets/images/logo.png">
+          <span id="logo-name"></span>井盖管理平台
+          <!-- <a href="index.html" class="logo-text"><span>路灯平台</span></a> -->
+        </div>
+        <div class="search-button">
+          <a href="javascript:void(0);" class="show-search"><i class="icon-magnifier"></i></a>
+        </div>
+        <div class="topmenu-outer">
+          <div class="top-menu">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  欢迎！
+                  <span class="user-name"><i class="fa fa-angle-down"></i></span>
+                  <img class="img-circle avatar" src="assets/images/avatar1.png" width="30" height="30" alt="">
+                </a>
+                <ul class="dropdown-menu dropdown-list" role="menu">
+                  <li role="presentation"><a href="javascript:;" class="change_password"><i
+                        class="icon-lock"></i>修改密码</a></li>
+                  <li role="presentation"><a href="javascript:;" class="pull_out"><i class="icon-user"></i>退出帐号</a></li>
+                </ul>
+              </li>
+            </ul><!-- Nav -->
+          </div><!-- Top Menu -->
+        </div>
+      </div>
+    </div><!-- Navbar -->
+    <div class="page-sidebar sidebar">
+      <div class="page-sidebar-inner slimscroll" style="padding-top: 0px;">
+        <ul class="menu accordion-menu">
+
+        </ul>
+      </div><!-- Page Sidebar Inner -->
+    </div><!-- Page Sidebar -->
+    <div class="page-inner">
+      <div class="page-title clearfix">
+        <p class="info-cont">当前位置：<i><a style="color: #606060;" href="javascript:;">智能巡检</a></i><i
+            class="info-tail">巡防日志</i></p>
+        <span class="time-cycle" id="time-cycle"></span>
+        <style type="text/css">
+          address,
+          caption,
+          cite,
+          code,
+          dfn,
+          em,
+          th,
+          var,
+          b,
+          i {
+            font-style: normal;
+            font-weight: normal;
+          }
+
+          .clearfix {
+            *zoom: 1;
+          }
+
+          .clearfix:before,
+          .clearfix:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+
+          .clearfix:after {
+            clear: both;
+          }
+
+          .info-cont {
+            line-height: 30px;
+            margin-bottom: 0px;
+            float: left;
+          }
+
+          .page-sidebar-fixed.page-header-fixed .page-inner {
+            padding-bottom: 0px;
+          }
+
+          .info-cont i:after {
+            display: inline-block;
+            content: '';
+            width: 7px;
+            height: 10px;
+            background: url(assets/images/position-nav_icon_arrow.png) no-repeat;
+            background-size: 7px 10px;
+            margin: 0 5px;
+          }
+
+          .info-cont i.info-tail {
+            color: #30B19B;
+          }
+
+          .info-cont i.info-tail:after {
+            color: #30B19B;
+            background: none;
+          }
+
+          .time-cycle {
+            line-height: 30px;
+            margin-right: 40px;
+            float: right;
+          }
+        </style>
+      </div>
+      <script type="text/javascript">
+        function __newstime() {
+          var today = new Date();
+          var year = today.getFullYear();
+          var month = today.getMonth() + 1;
+          var day = today.getDate();
+          var weekday = new Array(7);
+          weekday[0] = "星期天"
+          weekday[1] = "星期一"
+          weekday[2] = "星期二"
+          weekday[3] = "星期三"
+          weekday[4] = "星期四"
+          weekday[5] = "星期五"
+          weekday[6] = "星期六";
+          var hours = today.getHours();
+          var minutes = today.getMinutes();
+          var seconds = today.getSeconds();
+          if (minutes < 10) {
+            minutes = "0" + minutes;
+          }
+          if (seconds < 10) {
+            seconds = "0" + seconds;
+          }
+          var dt = year + '年' + month + '月' + day + '日' + ' ' + hours + ':' + minutes + ' ' + weekday[today.getDay()];
+          document.getElementById('time-cycle').innerHTML = dt;
+          setTimeout('__newstime()', 60000)
+        }
+        window.onload = __newstime;
+      </script>
+      <style type="text/css">
+        .r3_counter_box {
+          -ms-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          min-height: 160px;
+          background: #ffffff;
+          padding: 15px;
+        }
+
+        .live-situation-box,
+        .video-situation-box,
+        .singleton-situation-box {
+          width: 33.3%;
+          float: left;
+        }
+
+        .live-situation,
+        .video-situation,
+        .singleton-situation {
+          height: 130px;
+          font-size: 18px;
+          background: #f5f9fa;
+          color: #8f9297;
+          border-radius: 4px;
+          box-sizing: border-box;
+          padding: 15px;
+          margin-right: 10px;
+        }
+
+        .lh-40 {
+          line-height: 40px;
+        }
+
+        .num-font {
+          font-size: 50px;
+          color: #8f9297;
+        }
+
+        .backlog-box {
+          height: 130px;
+          margin: 0 10px;
+          background-color: #fff;
+          padding: 10px 20px 20px;
+          border-radius: 4px;
+        }
+
+        .backlog-header {
+          font-size: 20px;
+          line-height: 20px;
+          margin-bottom: 10px;
+        }
+
+        .course-backlog,
+        .singleton-backlog {
+          height: 34px;
+          line-height: 30px;
+          margin-bottom: 4px;
+          border-bottom: 1px solid #F5F5F6;
+        }
+
+        .course-item {
+          display: inline-block;
+          width: 80%;
+          color: #30B19B;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          float: left;
+        }
+
+        .weather {
+          height: 392px;
+          background-color: #fff;
+          padding-top: 5px;
+        }
+
+        .scrollbar {
+          height: 392px;
+          background: #fff;
+        }
+
+        .dynamic,
+        .service {
+          height: 210px;
+          background-color: #fff;
+          padding-top: 5px;
+        }
+
+        .problem-box,
+        .space-box,
+        .share-box {
+          background: #fff;
+          height: 100%;
+          border-radius: 4px;
+          /* padding: 10px 20px 20px; */
+          margin: 0 10px;
+          text-align: left;
+        }
+
+        .share-header,
+        .problem-header,
+        .service-header {
+          height: 50px;
+          font-size: 18px;
+          line-height: 50px;
+          /* margin-top: 15px; */
+        }
+
+        .problem_content {
+          height: 90px;
+          overflow: hidden;
+        }
+
+        .problem_content li {
+          line-height: 30px;
+          letter-spacing: 1px;
+        }
+
+        .problem_content li a {
+          display: block;
+          line-height: 30px;
+          text-decoration: none;
+          color: #999;
+          /* font-family: Arial; */
+          font-family: simkai;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 85%;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+
+        .service-box {
+          position: relative;
+          /* min-width: 284px; */
+          background: #fff;
+          height: 200px;
+          border-radius: 4px;
+          text-align: left;
+          /* padding: 10px 20px 10px; */
+          margin: 0 10px;
+        }
+
+        .service_man {
+          line-height: 24px;
+          margin: 10px 0;
+        }
+
+        .app-box {
+          width: 25%;
+          float: left;
+        }
+
+        .bomi_app {
+          text-align: center;
+        }
+
+        .bomi_app img {
+          display: block;
+          width: 100px;
+          height: 100px;
+          margin: 0 auto;
+        }
+
+        .bomi_app span {
+          font-size: 12px;
+        }
+
+        .flt {
+          float: left;
+        }
+
+        .copy p,
+        .copy_layout p {
+          font-size: 0.85em;
+          color: #555;
+        }
+
+        .copy p a,
+        .copy_layout p a {
+          color: #000;
+        }
+
+        .copy {
+          -ms-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -o-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.2);
+          background: #fff;
+          text-align: center;
+          padding: 1.5em 0;
+        }
+
+        .cal1 {
+          margin-bottom: 0px;
+        }
+      </style>
+      <div id="main-wrapper">
+        <div style="width: 100%;">
+          <div style="width:20%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:23%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:26%;height: 2px;background: #4173b9;margin-bottom:3px;"></div>
+          <div style="width:60%;height: 3px;background: #4173b9;margin-bottom:3px;"></div>
+        </div>
+        <div class="content-main" style="height:100%; width:100%;">
+          <iframe id="excelname" style="display: none;" src=""></iframe>
+          <form id="queryListForm">
+            <div class="SearhPanel">
+              <div id="headpoint" callbackfunc="$.umbrella.cplogDetailList.initReportDateRange">
+                <i class="fa fa-search" id="headerArrow" style="font-size:10px;"></i>
+              </div>
+              <div class="SA1" id="SA1">
+                <ul class="tabs" style="float:left;">
+                  <li class="active" key="">全部</li>
+                  <li key="0">正常</li>
+                  <li key="1">异常</li>
+                  <li key="9">未执行</li>
+                </ul>
+                上报日期：
+                <input type="text" class="flatpickr-input" id="reportTimeStart" placeholder="请选择开始时间">
+                至
+                <input type="text" class="flatpickr-input" id="reportTimeEnd" placeholder="请选择结束时间">
+                <input type="hidden" id="ifAbnormal" name="filter[&#39;ifAbnormal&#39;]" value="" autocomplete="off">
+                <a onclick="Export();" style="color: green;cursor: pointer;">导出EXCEL</a>
+                <input type="hidden" name="filter[&#39;del_flg&#39;]" value="0" autocomplete="off">
+                <input type="text" id="searchKey" name="filter[&#39;searchKey&#39;]" placeholder="输入关键字" autocomplete="off">
+                <input type="button" id="btnSearch" value="搜索" autocomplete="off">
+              </div>
+              <style>
+                .tabs{
+                  margin-top: 15px;
+                }
+                .tabs>li{
+                  float: left;
+                  padding: 6px 20px;
+                  margin-right: 10px;
+                  border: 1px solid #999;
+                  border-radius: 20px;
+                  line-height: normal;
+                  cursor: pointer;
+                  color: #999;
+                }
+                .tabs li.active{
+                background: #3BA9E1;
+                color: #fff;
+                border-color: #3BA9E1;
+                }
+              </style>
+              <div class="exp">
+                <div id="BottomArrow"></div>
+                <div class="SA2" id="SA2">
+                  <table width="100%" for="cplogDetailTable" class="table-searchbar">
+                    <tbody>
+                      <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;">
+                        <th width="10%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                            name="filter[&quot;tasklistName&quot;]" autocomplete="off"><input type="text"
+                            _name="tasklistName" placeholder="请输入任务名称" autocomplete="off"></th>
+                        <th width="10%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                            name="filter[&quot;cpName&quot;]" autocomplete="off"><input type="text" _name="cpName"
+                            placeholder="请输入巡检点名称" autocomplete="off"></th>
+                        <th width="10%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                            name="filter[&quot;sopName&quot;]" autocomplete="off"><input type="text" _name="sopName"
+                            placeholder="请输入SOP名称" autocomplete="off"></th>
+                        <th width="10%" style="white-space: nowrap;"></th>
+                        <th width="20%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                            name="filter[&quot;abnormalDesc&quot;]" autocomplete="off"><input type="text"
+                            _name="abnormalDesc" placeholder="请输入异常描述" autocomplete="off"></th>
+                        <th width="15%" style="white-space: nowrap;"></th>
+                        <th width="10%" class="searchable" style="white-space: nowrap;"><input type="hidden"
+                            name="filter[&quot;reportUserName&quot;]" autocomplete="off"><input type="text"
+                            _name="reportUserName" placeholder="请输入上报人" autocomplete="off"></th>
+                        <th width="10%" style="white-space: nowrap;"></th>
+                        <!-- <th width="15%" style="min-width:70px; text-align: center;">操作</th> -->
+                        <th width="5%" style="min-width:70px; text-align: center;"><input type="button" value="搜索"
+                            autocomplete="off"></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div style="margin: 20px 0px 0px; padding: 10px; background: white; max-height: 10000px; position: relative;">
+              <span style="position:absolute; left:100px; bottom:25px; color:#aaa;">PS：蓝色列可作为关键字进行搜索</span>
+              <table width="100%" id="cplogDetailTable" showfilter="table-cplogDetailTable" searchbar="barrow#SA2">
+                <thead>
+                  <tr style="border-bottom:1px solid #ccc; height:30px; color:#999;" id="barrow">
+                    <th width="10%" class="searchable fa fa-sort-after" search="txt#tasklistName" sort="tasklistName"
+                      style="white-space: nowrap; display: table-cell;">标签id</th>
+                    <th width="10%" class="searchable fa fa-sort-after" search="txt#cpName" sort="cpName"
+                      style="white-space: nowrap; display: table-cell;">标签名称</th>
+                    <th width="10%" class="searchable fa fa-sort-after" search="txt#sopName" sort="sopName"
+                      style="white-space: nowrap; display: table-cell;">路线名称</th>
+                    <th width="10%" search="" sort="ifAbnormal" style="white-space: nowrap; display: table-cell;"
+                      class="searchable fa fa-sort-after">街道名称</th>
+                    <th width="20%" class="searchable fa fa-sort-after" search="txt#abnormalDesc" sort="abnormalDesc"
+                      style="white-space: nowrap; display: table-cell;">标签添加人</th>
+                    <th width="20%" class="searchable fa fa-sort-after" search="txt#abnormalDesc" sort="abnormalDesc"
+                      style="white-space: nowrap; display: table-cell;">发送时间</th>
+                    <!-- <th width="10%" class="searchable fa fa-sort-after" search="txt#reportUserName"
+                      sort="reportUserName" style="white-space: nowrap; display: table-cell;">上报人</th>
+                    <th width="10%" search="" sort="reportTimeStr" style="white-space: nowrap; display: table-cell;"
+                      class="fa fa-sort-after">上报时间</th>
+                    <th width="5%" search="btn#search" style="min-width:70px; text-align: center;"></th> -->
+                  </tr>
+                </thead>
+                <tbody>                  
+                </tbody>
+              </table>
+              <style type="text/css">
+                .am-pagination {
+                  padding-left: 0;
+                  margin: 0.5rem 0;
+                  list-style: none;
+                  color: #999999;
+                  text-align: left;
+                }
+
+                .am-pagination:before,
+                .am-pagination:after {
+                  content: " ";
+                  display: table;
+                }
+
+                .am-pagination:after {
+                  clear: both;
+                }
+
+                .am-pagination>li {
+                  display: inline-block;
+                }
+
+                .am-pagination>li>a,
+                .am-pagination>li>span {
+                  position: relative;
+                  display: block;
+                  padding: 0.5em 1em;
+                  text-decoration: none;
+                  line-height: 1.2;
+                  background-color: #ffffff;
+                  border: 1px solid #dddddd;
+                  border-radius: 0;
+                  margin-bottom: 5px;
+                  margin-right: 5px;
+                }
+
+                .am-pagination>li:last-child>a,
+                .am-pagination>li:last-child>span {
+                  margin-right: 0;
+                }
+
+                .am-pagination>li>a:hover,
+                .am-pagination>li>span:hover,
+                .am-pagination>li>a:focus,
+                .am-pagination>li>span:focus {
+                  background-color: #eeeeee;
+                }
+
+                .am-pagination>.am-active>a,
+                .am-pagination>.am-active>span,
+                .am-pagination>.am-active>a:hover,
+                .am-pagination>.am-active>span:hover,
+                .am-pagination>.am-active>a:focus,
+                .am-pagination>.am-active>span:focus {
+                  z-index: 2;
+                  color: #ffffff;
+                  background-color: #0e90d2;
+                  border-color: #0e90d2;
+                  cursor: default;
+                }
+
+                .am-pagination>.am-disabled>span,
+                .am-pagination>.am-disabled>span:hover,
+                .am-pagination>.am-disabled>span:focus,
+                .am-pagination>.am-disabled>a,
+                .am-pagination>.am-disabled>a:hover,
+                .am-pagination>.am-disabled>a:focus {
+                  color: #999999;
+                  background-color: #ffffff;
+                  border-color: #dddddd;
+                  cursor: not-allowed;
+                  pointer-events: none;
+                }
+
+                .am-pagination .am-pagination-prev {
+                  float: left;
+                }
+
+                .am-pagination .am-pagination-prev a {
+                  border-radius: 0;
+                }
+
+                .am-pagination .am-pagination-next {
+                  float: right;
+                }
+
+                .am-pagination .am-pagination-next a {
+                  border-radius: 0;
+                }
+
+                .am-pagination-centered {
+                  text-align: center;
+                }
+
+                .am-pagination-right {
+                  text-align: right;
+                }
+
+                span.pager_turnto {
+                  margin: 0 !important;
+                  padding: 0 15px 0 10px !important;
+                  display: inline-block !important;
+                }
+
+                span.pager_turnto:before {
+                  font-size: 16px !important;
+                }
+              </style>
+              <div class="am-fr pager_div" style="padding: 0px;margin: 0px;float:right;margin-right:13px;">
+                <ul class="am-pagination" style="margin-right: 18px;">
+                  <li>
+                    <select class="pager_perpage_rowcnt" autocomplete="off">
+                      <option value="5">5行/页</option>
+                      <option value="10">10行/页</option>
+                      <option value="20" selected="selected">20行/页</option>
+                      <option value="30">30行/页</option>
+                      <option value="50">50行/页</option>
+                      <option value="100">100行/页</option>
+                    </select>
+                  </li>
+                  <li>查询到<font color="#f00;" class="pager_totalrow"></font>条记录　</li>
+                  <li><a href="javascript:void(0);" class="pager_first">首页</a></li>
+                  <!-- 显示上一页 -->
+                  <li><a href="javascript:void(0);" class="pager_pre">上一页</a></li>
+                  <!--当前页 -->
+                  <li class="am-disabled"><span class="pager_current"></span></li>
+                  <!-- 显示下一页 -->
+                  <li><a href="javascript:void(0);" class="pager_next">下一页</a></li>
+                  <!-- 最后一页 -->
+                  <li><a href="javascript:void(0);" class="pager_last">尾页</a></li>
+                  <!-- 跳转 -->
+                  <li>跳转至：&nbsp;
+                    <input type="text" style="height:20px; width:40px; text-align:center; display:inline-block; border:1px solid #ddd;"
+                      class="general_input2 pager_turnToPage" autocomplete="off">&nbsp;
+                      <span class="fa fa-fw fa-angle-right pager_turnto" style="top: 2px;"></span>
+                  </li>
+                </ul>
+              </div>
+              <div style="clear:both;"></div>
+              <div class="table-col-filter">
+                <div><span class="fa fa-th filter-icon"></span></div>
+              </div>
+            </div>
+            <input type="text" style="display:none;" autocomplete="off">
+            <input type="hidden" class="_hid_pager_current" value="1">
+            <input type="hidden" class="_hid_pager_totalpage" value="0">
+            <input type="button" id="__hidBtnSearch" style="display:none">
+          </form>
+        </div>
+      </div><!-- Main Wrapper -->
+    </div><!-- Page Inner -->
+  </main><!-- Page Content -->
+
+  <audio id="alarm_voice" loop="loop" src="audio/alarm.mp3" type="audio/mp3"></audio>
+
+  <!-- Javascripts -->
+  <script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+
+  <script src="assets/js/distpicker.data.js"></script>
+  <script src="assets/js/distpicker.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/underscore-min.js"></script>
+  <script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+  <script src="assets/plugins/toastr/toastr.min.js"></script>
+
+  <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="assets/plugins/pace-master/pace.min.js"></script>
+  <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+  <!-- <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> -->
+  <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  <script src="assets/plugins/switchery/switchery.min.js"></script>
+  <script src="assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
+  <script src="assets/plugins/offcanvasmenueffects/js/classie.js"></script>
+  <script src="assets/plugins/waves/waves.min.js"></script>
+  <script src="assets/plugins/3d-bold-navigation/js/main.js"></script>
+  <script src="assets/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="assets/js/layers.min.js"></script>
+  <script src="assets/js/pages/charts-sparkline.js"></script>
+  <script src="assets/js/moment-2.2.1.js" type="text/javascript"></script>
+  <script src="assets/js/clndr.js" type="text/javascript"></script>
+  <script src="assets/js/site.js" type="text/javascript"></script>
+  <script src="assets/js/sweet-alert.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- <script src="assets/js/zhwnl.js"></script> -->
+  <script src="layer-v3.1.0/layer/layer.js"></script>
+  <script src="assets/js/jquery.mloading.js"></script>
+  <script src="assets/js/pager.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+  <script src="assets/js/checkpointManage.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+  <script src="assets/js/echarts.min.js"></script>
+  <script src="/laydate/laydate.js"></script>
+  <script type="text/template" id="model">
+    <% var map = obj.list %>
+            <% var oImageUrl = common.oImageUrl() %>
+            <% for(var i=0;i<map.length;i++){ %>
+                <% var item = map[i] %>
+                <tr style="height: 30px;">
+                    <td><%=item.tag_id%></td>
+                    <td><%=item.tag_name%></td>
+                    <td><%=item.line_name%></td>
+                    <td><%=item.stress_name%></td>
+                    <td><%=item.user_name%></td>
+                    <td><%=item.send_time%></td>
+                </tr>
+            <% } %>
+        </script>
+  <script>
+    
+    laydate.render({
+      elem: '#reportTimeStart'
+    });
+    laydate.render({
+      elem: '#reportTimeEnd'
+    });
+    //初始化Tab选中状态
+    var page_index = 1
+    var ps = 20
+    var total_ps
+    var oRequestUrl = '/HuaXtentCover/log/point/queryLog'
+    $(function(){
+      $("ul.tabs li").click(function(){
+        $(this).addClass("active").siblings().removeClass("active")
+      })
+      $('body').mLoading("show");
+      let oData = {
+        cp: page_index,
+        ps: ps
+      }
+      common.ajax(oRequestUrl,'GET', oData, (res) => {
+        console.log(res)
+        if(res.code == 200){
+           if(res.data.list.length > 0){
+            res.data.list.map(item => {
+              item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+            })
+            total_ps = res.data.totalPage
+            var detail=res.data;
+            var model=$("#model").html();
+            let text = '<tr style="height: 30px;display:none"></tr>'
+            var template=_.template(model)(detail);
+            $("#cplogDetailTable tbody").html(text + template);
+            $('body').mLoading("hide");
+            $('.pager_totalrow').html(res.data.totalCount)
+            $('.pager_current').html(page_index + '/' + res.data.totalPage)
+           }
+        }else{
+          if(res.code == 2001){
+            __againLogin(res.message);
+          }else{
+            var oMsg = res.message;
+            layer.msg('提示,' + oMsg,{
+                shade: 0.3,
+                shadeClose:true,
+                time:2000,
+                icon: 2
+            },
+            function(){
+              $('body').mLoading("hide");
+              $(".layui-table tbody").html('');
+              $(".pages").text('共有0条, 每页显示10条');
+                // window.location.href = 'login.html';
+            });
+          }
+        }
+      })
+    })
+    $('.pager_perpage_rowcnt').change(() => {
+      ps = $('.pager_perpage_rowcnt').val()
+      let oData = {
+        cp: page_index,
+        ps: ps
+      }
+      common.ajax(oRequestUrl, 'GET', oData, (res) => {
+        console.log(res)
+        if (res.data.list.length > 0) {
+          res.data.list.map(item => {
+            item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+          })
+          var detail = res.data;
+          total_ps = res.data.totalPage   
+          var model = $("#model").html();
+          let text = '<tr style="height: 30px;display:none"></tr>'
+          var template = _.template(model)(detail);
+          $("#cplogDetailTable tbody").html(text + template);
+          $('body').mLoading("hide");
+          $('.pager_totalrow').html(res.data.totalCount)
+          $('.pager_current').html(page_index + '/' + res.data.totalPage)
+        }
+      })
+    })
+    $('.pager_next').click(() => {
+      console.log(1)
+      if(page_index < total_ps){
+        page_index ++
+        let oData = {
+          cp: page_index,
+          ps: ps
+        }
+        common.ajax(oRequestUrl, 'GET', oData, (res) => {
+          console.log(res)
+          if (res.data.list.length > 0) {
+            res.data.list.map(item => {
+              item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+            })
+            var detail = res.data;
+            var model = $("#model").html();
+            let text = '<tr style="height: 30px;display:none"></tr>'
+            var template = _.template(model)(detail);
+            $("#cplogDetailTable tbody").html(text + template);
+            $('body').mLoading("hide");
+            $('.pager_totalrow').html(res.data.totalCount)
+            $('.pager_current').html(page_index + '/' + res.data.totalPage)
+          }
+        })
+      }else{
+        alert('已经是最后一页')
+      }
+    })
+    $('.pager_pre').click(() => {
+      console.log(2)
+      if (page_index > 1) {
+        page_index --
+        let oData = {
+          cp: page_index,
+          ps: ps
+        }
+        common.ajax(oRequestUrl, 'GET', oData, (res) => {
+          console.log(res)
+          if (res.data.list.length > 0) {
+            res.data.list.map(item => {
+              item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+            })
+            var detail = res.data;
+            var model = $("#model").html();
+            let text = '<tr style="height: 30px;display:none"></tr>'
+            var template = _.template(model)(detail);
+            $("#cplogDetailTable tbody").html(text + template);
+            $('body').mLoading("hide");
+            $('.pager_totalrow').html(res.data.totalCount)
+            $('.pager_current').html(page_index + '/' + res.data.totalPage)
+          }
+        })
+      } else {
+        alert('已经是第一页')
+      }
+    })
+    $('.pager_first').click(() => {
+      console.log(2)
+      page_index = 1
+      let oData = {
+          cp: page_index,
+          ps: ps
+        }
+      common.ajax(oRequestUrl, 'GET', oData, (res) => {
+        console.log(res)
+        if (res.data.list.length > 0) {
+          res.data.list.map(item => {
+            item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+          })
+          var detail = res.data;
+          var model = $("#model").html();
+          let text = '<tr style="height: 30px;display:none"></tr>'
+          var template = _.template(model)(detail);
+          $("#cplogDetailTable tbody").html(text + template);
+          $('body').mLoading("hide");
+          $('.pager_totalrow').html(res.data.totalCount)
+          $('.pager_current').html(page_index + '/' + res.data.totalPage)
+        }
+      })
+    })
+    $('.pager_last').click(() => {
+      console.log(2)
+      page_index = total_ps
+      let oData = {
+        cp: page_index,
+        ps: ps
+      }
+      common.ajax(oRequestUrl, 'GET', oData, (res) => {
+        console.log(res)
+        if (res.data.list.length > 0) {
+          res.data.list.map(item => {
+            item.send_time = new Date(item.send_time).Format("yyyy-MM-dd hh:mm:ss")
+          })
+          var detail = res.data;
+          var model = $("#model").html();
+          let text = '<tr style="height: 30px;display:none"></tr>'
+          var template = _.template(model)(detail);
+          $("#cplogDetailTable tbody").html(text + template);
+          $('body').mLoading("hide");
+          $('.pager_totalrow').html(res.data.totalCount)
+          $('.pager_current').html(page_index + '/' + res.data.totalPage)
+        }
+      })
+    })
+  </script>
+
+
+</body>
+
+</html>

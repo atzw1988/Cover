@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能井盖数据平台</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/visc-animate.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.mloading.css">
+    <link rel="stylesheet" href="assets/css/visc-common.css">
+    <link rel="stylesheet" href="assets/css/visc-map.css">
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.6&key=934e7effeeafc0d06a345fd6b70bee5d&plugin=AMap.MarkerClusterer"></script>
+</head>
+<body>
+<div class="data">
+
+    <div class="data-title">
+        <div class="title-left fl"></div>
+        <div class="title-center fl"></div>
+        <div class="title-right fr"></div>
+    </div>
+    <div class="data-content">
+        <div class="con-left fl">
+            <div class="left-top">
+                <div class="info">
+                    <div class="info-title">实时统计</div>
+                    <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                    <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                    <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                    <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                    <div class="info-main">
+                        <div class="info-1">
+                            <div class="info-img fl">
+                                <img src="assets/images/info-img-1.png" alt="">
+                            </div>
+                            <div class="info-text fl">
+                                <p>井盖总数</p>
+                                <p class="coverAllNum"></p>
+                            </div>
+                        </div>
+                        <div class="info-2">
+                            <div class="info-img fl">
+                                <img src="assets/images/info-img-2.png" alt="">
+                            </div>
+                            <div class="info-text fl">
+                                <p>当前在线数</p>
+                                <p class="coverRunNum"></p>
+                            </div>
+                        </div>
+                        <div class="info-3">
+                            <div class="info-img fl">
+                                <img src="assets/images/info-img-3.png" alt="">
+                            </div>
+                            <div class="info-text fl">
+                                <p>当天增加数</p>
+                                <p class="coverAddNum"></p>
+                            </div>
+                        </div>
+                        <div class="info-4">
+                            <div class="info-img fl">
+                                <img src="assets/images/info-img-alarm.png" alt="">
+                            </div>
+                            <div class="info-text fl">
+                                <p>今日报警数</p>
+                                <p class="coverAlarmNum"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="top-bottom">
+                    <div class="title">报警信息TOP10</div>
+                    <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                    <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                    <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                    <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                    <!-- <div id="echarts_6" class="charts"></div> -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- <div class="swiper-slide">
+                                <p>imei号：863703037688509</p>
+                                <p>井盖名称：测试5</p>
+                                <p>部门名称：测试部</p>
+                                <p>详细地址：广东省深圳市宝安区西乡街道中科诺工业园</p>
+                                <p>设备电压(V)：3.5</p>
+                                <p>信号强度：17</p>
+                                <p style="color: red;">报警状态：打开</p>
+                                <p>上报时间：2018-06-26 13:13:48</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <p>imei号：863703032864329</p>
+                                <p>井盖名称：华腾科技探头</p>
+                                <p>部门名称：深圳水务</p>
+                                <p>详细地址：广东省深圳市福田区深圳市水务科技有限公司</p>
+                                <p>设备电压(V)：3.4</p>
+                                <p>信号强度：18</p>
+                                <p style="color: red;">报警状态：松动</p>
+                                <p>上报时间：2018-06-11 18:11:43</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <p>imei号：863703032895620</p>
+                                <p>井盖名称：中关村大街一</p>
+                                <p>部门名称：北京微点科技</p>
+                                <p>详细地址：北京市海淀区海淀街道海龙大厦</p>
+                                <p>设备电压(V)：3.5</p>
+                                <p>信号强度：6</p>
+                                <p style="color: red;">报警状态：松动、溢水</p>
+                                <p>上报时间：2018-06-23 20:54:36</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="left-bottom">
+                <div class="title">井盖分类</div>
+                <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                <div id="echarts_2" class="charts"></div>
+            </div> -->
+        </div>
+        <div class="con-center fl">
+            <div class="map-num">
+                <p>井盖监控</p>
+                <div class="num">
+                    <span class="coverRunNumMap"></span>
+                </div>
+            </div>
+            <!-- <div class="cen-top" id="map"></div> -->
+            <div class="cen-top" id="containerMap"></div>
+            <!-- <div id="tip">
+                省：<select id='province' style="width:100px" onchange='search(this)'></select>
+                市：<select id='city' style="width:100px" onchange='search(this)'></select>
+                区：<select id='district' style="width:100px" onchange='search(this)'></select>
+                街道：<select id='street' style="width:100px" onchange= 'setCenter(this)'></select>
+            </div> -->
+            <div class="cen-bottom">
+                <div class="title">井盖心跳数据监控</div>
+                <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                <span class="time-cycle" id="time-cycle"></span>
+                <div id="echarts_3" class="charts"></div>
+            </div>
+        </div>
+        <div class="con-right fr">
+            <div class="right-top">
+                <div class="title">报警状态统计</div>
+                <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                <div id="echarts_4" class="charts"></div>
+            </div>
+            <div class="right-center">
+                <div class="title">各省份井盖报警TOP5</div>
+                <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                <div id="echarts_5" class="charts"></div>
+            </div>
+            <div class="right-bottom">
+                <div class="title">部门分类</div>
+                <img src="assets/images/bj-1.png" alt="" class="bj-1">
+                <img src="assets/images/bj-2.png" alt="" class="bj-2">
+                <img src="assets/images/bj-3.png" alt="" class="bj-3">
+                <img src="assets/images/bj-4.png" alt="" class="bj-4">
+                <div id="echarts_1" class="charts"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<audio id="alarm_voice" loop="loop" src="audio/alarm.mp3" type="audio/mp3"></audio>
+</body>
+
+<script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<script src="assets/plugins/toastr/toastr.min.js"></script>
+<!-- <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script> -->
+<!-- <script src="https://webapi.amap.com/maps?v=1.4.6&key=934e7effeeafc0d06a345fd6b70bee5d&plugin=AMap.MarkerClusterer&plugin=AMap.DistrictSearch"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+<script type="text/javascript" src="assets/js/visc-animatext.min.js"></script>
+<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script>
+<script src="assets/js/underscore-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/echarts.min.js"></script>
+<!-- <script src="assets/js/china.js"></script> -->
+<script src="assets/js/jquery.mloading.js"></script>
+<script src="layer-v3.1.0/layer/layer.js"></script>
+<script src="assets/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/visc-echarts.js"></script>
+<script type="text/template" id="model">
+    <% var map = obj %>
+    <% for(var i=0;i<map.length;i++){ %>
+        <% var item = map[i] %>
+        <div class="swiper-slide">
+            <p>imei号：<%=item.imei%></p>
+            <p>井盖名称：<%=item.deviceName%></p>
+            <p>部门名称：<%=item.deptName%></p>
+            <p>区域名称：<%=item.areaName%></p>
+            <p>详细地址：<%=item.address%></p>
+            <p>设备电压(V)：<%=item.voltage%></p>
+            <p>信号强度：<%=item.gprsSignal%></p>
+            <p style="color: red;">报警状态：<%=item.stateName%></p>
+            <p>上报时间：<%=item.reportingTime%></p>
+        </div>
+    <% } %>
+</script>
+</html>
