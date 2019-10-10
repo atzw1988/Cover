@@ -429,14 +429,20 @@
                     <td><%=item.mobile%></td>
                     <td><%=item.installationTime%></td>
                     <td class="updateTime"><%=item.updateTime%></td>
-                    <% if(item.deviceState == 1){ %>
+                    <% if(item.deviceState == 24){ %>
                         <td class="deviceState" style="color: #30B19B;">正常</td>
-                    <% }else if(item.deviceState == 2){ %>
-                        <td class="deviceState">信号弱</td>
-                    <% }else if(item.deviceState == 3){ %>
-                        <td class="deviceState">休眠</td>
-                    <% }else if(item.deviceState == 4){ %>
-                        <td class="deviceState" style="color: red;">报警</td>
+                    <% }else if(item.deviceState == 22){ %>
+                        <td class="deviceState" style="color: red;">信号弱</td>
+                    <% }else if(item.deviceState == 19){ %>
+                        <td class="deviceState" style="color: red;">井盖锁未到位</td>
+                    <% }else if(item.deviceState == 20){ %>
+                        <td class="deviceState" style="color: red;">电压低</td>
+                    <% }else if(item.deviceState == 21){ %>
+                        <td class="deviceState" style="color: red;">电压低</td>
+                    <% }else if(item.deviceState == 23){ %>
+                        <td class="deviceState" style="color: red;">角度报警</td>
+                    <% }else if(item.deviceState == 25){ %>
+                        <td class="deviceState" style="color: #999;">离线</td>
                     <% }else { %>
                         <td class="deviceState">未知</td>
                     <% } %>

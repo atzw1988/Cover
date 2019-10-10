@@ -268,7 +268,8 @@ $(function(){
             title: '查看imei号【' + oCoverImei + '】，详情',
             type: 2,
             shadeClose: false, //点击遮罩关闭
-            area : ['850px', '750px'],
+						area : ['850px', '750px'],
+						offset: '100px',
             content: 'lockFixDetail.html',
             end: function () {
                 window.location.reload();

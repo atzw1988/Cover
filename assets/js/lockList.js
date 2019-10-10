@@ -111,6 +111,15 @@ $(function(){
 		if ($('#imei').val().length > 0) {
 			oData.imei = $('#imei').val();
 		}
+		if ($('#cover_name').val().length > 0) {
+			oData.name = $('#cover_name').val();
+		}
+		if ($('#add_name').val().length > 0) {
+			oData.addMan = $('#add_name').val();
+		}
+		if ($('.sel_status').val()) {
+			oData.state = $('.sel_status').val();
+		}
 		// if ($('#mac').val().length > 0) {
 		// 	oData.mac = $('#mac').val();
 		// }

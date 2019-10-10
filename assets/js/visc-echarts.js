@@ -107,15 +107,37 @@ function markerClick(e) {
     
     common.viscAjax('/HuaXtentCover/data/view/mapDetail', 'POST', {imei: e.target.imei}, function(res){
         if(res.success){
-            if(res.data.deviceState == 1){
+            if (res.data.deviceState == 8) {
                 var oDeviceState = '正常';
-            }else if(res.data.deviceState == 2){
+            } else if (res.data.deviceState == 15) {
                 var oDeviceState = '信号弱';
-            }else if(res.data.deviceState == 3){
-                var oDeviceState = '休眠';
-            }else if(res.data.deviceState == 4){
-                var oDeviceState = '报警';
-            }else{
+            } else if (res.data.deviceState == 1) {
+                var oDeviceState = '打开';
+            } else if (res.data.deviceState == 2) {
+                var oDeviceState = '松开';
+            } else if (res.data.deviceState == 3) {
+                var oDeviceState = '复位';
+            } else if (res.data.deviceState == 6) {
+                var oDeviceState = '电压低';
+            } else if (res.data.deviceState == 7) {
+                var oDeviceState = '溢水';
+            } else if (res.data.deviceState == 16) {
+                var oDeviceState = '离线';
+            } else if (res.data.deviceState == 19) {
+                var oDeviceState = '井盖锁未到位';
+            } else if (res.data.deviceState == 20) {
+                var oDeviceState = '电压低';
+            } else if (res.data.deviceState == 21) {
+                var oDeviceState = '电压高';
+            } else if (res.data.deviceState == 22) {
+                var oDeviceState = '信号弱';
+            } else if (res.data.deviceState == 23) {
+                var oDeviceState = '角度报警';
+            } else if (res.data.deviceState == 24) {
+                var oDeviceState = '正常';
+            } else if (res.data.deviceState == 25) {
+                var oDeviceState = '离线';
+            } else {
                 var oDeviceState = '未知';
             }
             var oHtml = '';
@@ -190,18 +212,24 @@ $(function () {
     common.viscAjax('/HuaXtentCover/data/view/map', 'POST', {deptId: $.cookie('coverDeptId')}, function(res){
         // console.log(Date.now(),res);
         if(res.success){
+            console.log(res.data)
             res.data.map(function(item,index){
                 var arr = [item.lng, item.lat];
                 item.lnglat = arr;
-                if(item.state == '1'){
-                    item.state = 'assets/images/normal_ioc_visc.png';
-                }else if(item.state == '2'){
-                    item.state = 'assets/images/noonline_ico.png';
-                }else if(item.state == '3'){
-                    item.state = 'assets/images/smart_Manholecover.png';
-                }else if(item.state == '4'){
-                    item.state = 'assets/images/abnormal_ico.png';
-                }else{
+                // if(item.state == '1'){
+                //     item.state = 'assets/images/normal_ioc_visc.png';
+                // }else if(item.state == '2'){
+                //     item.state = 'assets/images/noonline_ico.png';
+                // }else if(item.state == '3'){
+                //     item.state = 'assets/images/smart_Manholecover.png';
+                // }else if(item.state == '4'){
+                //     item.state = 'assets/images/abnormal_ico.png';
+                // }else{
+                //     item.state = 'assets/images/abnormal_ico.png';
+                // }
+                if (item.state == '8' || item.state == '3' || item.state == '6' || item.state == '15' || item.state == '16' || item.state == '24' || item.state == '20' || item.state == '22' || item.state == '25') {
+                    item.state = 'assets/images/normal_ioc.png';
+                } else {
                     item.state = 'assets/images/abnormal_ico.png';
                 }
                 delete item.lng;

@@ -471,14 +471,24 @@
                     <td><%=item.mobile%></td>
                     <td><%=item.installationTime%></td>
                     <td><%=item.updateTime%></td>
-                    <% if(item.deviceState == 1){ %>
+                    <% if(item.deviceState == 8){ %>
                         <td style="color: #30B19B">正常</td>
-                    <% }else if(item.deviceState == 2){ %>
+                    <% }else if(item.deviceState == 15){ %>
                         <td style="color: #f5df62">信号弱</td>
                     <% }else if(item.deviceState == 3){ %>
-                        <td style="color: #ccc">休眠</td>
-                    <% }else if(item.deviceState == 4){ %>
-                        <td style="color: red">报警</td>
+                        <td style="color: #30B19B">复位</td>
+                    <% }else if(item.deviceState == 1){ %>
+                        <td style="color: red">打开</td>
+                    <% }else if(item.deviceState == 2){ %>
+                        <td style="color: red">松动</td>
+                    <% }else if(item.deviceState == 3){ %>
+                        <td style="color: #30B19B">复位</td>
+                    <% }else if(item.deviceState == 6){ %>
+                        <td style="color: red">电压低</td>
+                    <% }else if(item.deviceState == 7){ %>
+                        <td style="color: red">溢水</td>
+                    <% }else if(item.deviceState == 16){ %>
+                        <td style="color: #999">离线</td>
                     <% }else { %>
                         <td>未知</td>
                     <% } %>

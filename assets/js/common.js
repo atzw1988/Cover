@@ -47,7 +47,8 @@
          */
         oUrl: function(){
             return 'https://www.lcgxlm.com';
-            // return 'http://192.168.0.126:8080';
+            // return 'http://112.33.13.149:8080';
+            // return 'http://192.168.0.130:8080';
             // return 'http://192.168.0.116:8080'; //需要修改addBranch.html + editBranch.html里面的ip
          },
         oImageUrl: function(){
@@ -81,7 +82,7 @@
                         // if(index){
                         //     parent.layer.close(index);
                         // }
-                        window.parent.location.href = 'login.html';
+                        // window.parent.location.href = 'login.html';
                     });
 
                 }
@@ -395,7 +396,7 @@ $(function(){
                         var oState = '未知';
                         var oColor = '#666';
                     }
-                    var oMsg = 'Imei号：' + oResult.imei + '；<br/>报警信息为：' + oResult.alarmMsg + '；<br/>报警状态为：' + oState + '；<br/>报警时间：' + new Date(parseInt(oResult.time)).Format("yyyy-MM-dd hh:mm:ss");
+                    var oMsg = 'Imei号：' + oResult.imei + '；<br/>报警信息为：' + oResult.alarmMsg + '；<br/>报警时间：' + new Date(parseInt(oResult.time)).Format("yyyy-MM-dd hh:mm:ss");
                     Command: toastr["error"](oMsg);
                     if(window.location.pathname.indexOf('coverList.html') != -1 ){
                         for(var i = 0; i < $('td.imei').length; i++){
@@ -410,19 +411,25 @@ $(function(){
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(6).text()+'</td>'+
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(7).text()+'</td>'+
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(8).text()+'</td>'+
+                                        '<td>'+$('td.imei').eq(i).parent().find('td').eq(9).text()+'</td>'+
                                         '<td>'+new Date(parseInt(oResult.time)).Format("yyyy-MM-dd hh:mm:ss")+'</td>';
-                                        if(oResult.state == 1){
+                                        if (oResult.state == 8) {
                                             oHtml += '<td style="color: #30B19B">正常</td>';
-                                        }else if(oResult.state == 2){
-                                            oHtml += '<td style="color: #f5df62">信号弱</td>';
-                                        }else if(oResult.state == 3){
-                                            oHtml += '<td style="color: #ccc">休眠</td>';
-                                        }else if(oResult.state == 4){
-                                            oHtml += '<td style="color: red">报警</td>';
+                                        } else if (oResult.state == 3) {
+                                            oHtml += '<td style="color: #30B19B">复位</td>';
                                         }else{
-                                            oHtml += '<td>未知</td>';
+                                            oHtml += '<td style="color: red">' + oResult.alarmMsg +'</td>'
                                         }
-                                oHtml +='<td>'+$('td.imei').eq(i).parent().find('td').eq(11).html()+'</td>'+
+                                        // else if(oResult.state == 2){
+                                        //     oHtml += '<td style="color: #f5df62">信号弱</td>';
+                                        // }else if(oResult.state == 3){
+                                        //     oHtml += '<td style="color: #ccc">休眠</td>';
+                                        // }else if(oResult.state == 4){
+                                        //     oHtml += '<td style="color: red">报警</td>';
+                                        // }else{
+                                        //     oHtml += '<td>未知</td>';
+                                        // }
+                                oHtml +='<td>'+$('td.imei').eq(i).parent().find('td').eq(12).html()+'</td>'+
                                         '<td>'+
                                             '<div class="edit_btn"><a href="javascript:;" style="color: #30B19B !important;">编辑</a></div>'+
                                             '<div class="delete_btn"><a href="javascript:;">删除</a></div>'+
@@ -463,19 +470,25 @@ $(function(){
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(6).text()+'</td>'+
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(7).text()+'</td>'+
                                         '<td>'+$('td.imei').eq(i).parent().find('td').eq(8).text()+'</td>'+
+                                        '<td>'+$('td.imei').eq(i).parent().find('td').eq(9).text()+'</td>'+
                                         '<td>'+new Date(parseInt(oResult.time)).Format("yyyy-MM-dd hh:mm:ss")+'</td>';
-                                        if(oResult.state == 1){
+                                        if (oResult.state == 8) {
                                             oHtml += '<td style="color: #30B19B">正常</td>';
-                                        }else if(oResult.state == 2){
-                                            oHtml += '<td style="color: #f5df62">信号弱</td>';
-                                        }else if(oResult.state == 3){
-                                            oHtml += '<td style="color: #ccc">休眠</td>';
-                                        }else if(oResult.state == 4){
-                                            oHtml += '<td style="color: red">报警</td>';
-                                        }else{
-                                            oHtml += '<td>未知</td>';
+                                        } else if (oResult.state == 3) {
+                                            oHtml += '<td style="color: #30B19B">复位</td>';
+                                        } else {
+                                            oHtml += '<td style="color: red">' + oResult.alarmMsg + '</td>'
                                         }
-                                oHtml +='<td>'+$('td.imei').eq(i).parent().find('td').eq(11).html()+'</td>'+
+                                        // else if(oResult.state == 2){
+                                        //     oHtml += '<td style="color: #f5df62">信号弱</td>';
+                                        // }else if(oResult.state == 3){
+                                        //     oHtml += '<td style="color: #ccc">休眠</td>';
+                                        // }else if(oResult.state == 4){
+                                        //     oHtml += '<td style="color: red">报警</td>';
+                                        // }else{
+                                        //     oHtml += '<td>未知</td>';
+                                        // }
+                                oHtml +='<td>'+$('td.imei').eq(i).parent().find('td').eq(12).html()+'</td>'+
                                         '<td>'+
                                             '<div class="edit_btn"><a href="javascript:;" style="color: #30B19B !important;">编辑</a></div>'+
                                             '<div class="delete_btn"><a href="javascript:;">删除</a></div>'+
